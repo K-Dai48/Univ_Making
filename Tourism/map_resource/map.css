@@ -1,0 +1,12 @@
+body {
+    margin:0 ;
+    padding: 0;
+    height: 100%;
+}
+
+h1 {
+    margin: 0; /* デフォルトのマージンを削除 */
+    padding: 10px; /* 必要に応じてパディングを追加 */
+    background-color: #f0f0f0; /* バックグラウンドカラー（任意） */
+    text-align: center; /* 中央揃え（任意） */
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<!--メインマップの作成 -->
+
+<html lang="ja">
+<head>
+    <title>おじろマップ</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--lealetの設定（ローカル）-->
+    <link rel="stylesheet" href="Tourism/map_resource/src/leaflet.css" />
+    <!-- <link rel="stylesheet" href="../../default.css"> -->
+    <link rel="stylesheet" type="text/css" href="Tourism/map_resource/map.css">
+
+    <style>
+        #mapset {
+            width: 100vw;
+            height: calc(100vh - 70px);
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>おじろマップ</h1>
+    <div id="mapset"></div>
+
+    <!-- 読み込みgeojson-->
+    <script src="Tourism/gis/Ojiro_area.geojson" charset="utf-8"></script>
+
+    <!-- Leaflet JavaScript -->
+    <script src="Tourism/map_resource/src/leaflet.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="Tourism/map_resource/map_script.js"></script>
+    
+</body>
+
+</html>
