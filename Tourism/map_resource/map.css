@@ -11,7 +11,7 @@ h1 {
     text-align: center; /* 中央揃え（任意） */
 }
 
-.leaflet-popup-content img.popup-photo {
-    max-height: 100%;
+.popup-photo {
+    max-height: 200px;
     width: auto;
 }
