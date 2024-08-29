@@ -43,6 +43,7 @@ h1 {
     background-color: orange;
     color: white;
     border: none;
+    border-radius: 15px;
     padding: 10px;
     cursor: pointer;
 }
