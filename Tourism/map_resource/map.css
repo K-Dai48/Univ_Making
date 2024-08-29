@@ -12,6 +12,6 @@ h1 {
 }
 
 .leaflet-popup-content img.popup-photo {
-    max-height: 1000px;
+    max-height: 100%;
     width: auto;
 }
