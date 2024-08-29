@@ -13,18 +13,27 @@ h1 {
 
 /* leaflet */
 .leaflet-popup-content-wrapper {
-    max-width: 200px; /* ポップアップの最大横幅を設定 */
+    max-width: 400px; /* ポップアップの最大横幅を設定 */
+}
+
+.popup-content {
+    display: flex;
+    align-items: center;
+}
+
+.popup-photo {
+    max-width: 150px;
+    max-width: 150px;
+    margin-right: 10px;
+}
+.popup-text {
+    flex: 1;
 }
 
 .leaflet-popup-content h3 {
     color: red; /* タイトルの文字色を青に変更 */
 }
   
-  .leaflet-popup-content p {
+.leaflet-popup-content p {
     color: green; /* パラグラフの文字色を緑に変更 */
-}
-
-
-.popup-photo {
-    max-width: 150px;
 }
