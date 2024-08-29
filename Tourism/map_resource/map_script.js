@@ -88,7 +88,7 @@ function setting() {
     });
   }
 
-  loadCSVData('point.csv').then(points => {
+  loadCSVData('Tourism/map_resource/point.csv').then(points => {
     addpoint(map, points);
   });
 
