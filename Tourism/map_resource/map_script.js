@@ -88,7 +88,6 @@ function setting() {
         document.getElementById('info-title').innerText = point.name;
         document.getElementById('info-dsc').innerHTML = point.dsc;
         document.getElementById('info-img').src = point.img;
-
         // スライドを表示
         document.getElementById('info-slide').style.bottom = '0';
       });
