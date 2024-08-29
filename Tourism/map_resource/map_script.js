@@ -74,7 +74,7 @@ function setting() {
         obj[header.trim()] = currentLine[j].trim(); //ヘッダーをキー、データを値としてオブジェクトに
       });
 
-      result.push(obj); オブジェクトをリストに追加
+      result.push(obj); //オブジェクトをリストに追加
     }
 
     return result;
@@ -83,13 +83,13 @@ function setting() {
   function addpoint(map, points) {
     points.forEach(point => {
       const marker = L.marker([point.lat, point.lon]).addTo(map); //マーカーを追加
-      const popupContent ='<h3>${point.name}</h3><p>${point.dsc}</p><img src="${point.img}" alt="${point.name}" style="width:100%;height:auto;">';
+      const popupContent =`<h3>${point.name}</h3><p>${point.dsc}</p><img src="${point.img}" alt="${point.name}" style="width:100%;height:auto;">`;
       marker.bindPopup(popupContent); //ポップアップの内容を設定
     });
   }
 
   loadCSVData('point.csv').then(points => {
-    addPointsToMap(map, points);
+    addpoint(map, points);
   });
 
 }
