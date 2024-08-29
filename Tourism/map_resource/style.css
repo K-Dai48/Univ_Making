@@ -13,7 +13,7 @@ h1 {
 
 /* leaflet */
 .leaflet-popup-content-wrapper {
-    width: 200px;
+    width: 50px;
 }
 
 /*.popup-photo {
