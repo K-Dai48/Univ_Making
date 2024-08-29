@@ -12,7 +12,7 @@ h1 {
 }
 
 /* popupContent */
-info-slide {
+.info-slide {
     position: fixed;
     bottom: -100%; /* 初期状態では画面外に隠す */
     left: 0;
@@ -26,7 +26,7 @@ info-slide {
     border-top-left-radius: 15px;
 }
 
-info-content {
+.info-content {
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -36,14 +36,14 @@ info-content {
     overflow-y: auto;
 }
 
-info-img {
+.info-img {
     max-width: 150px;
     height: auto;
     margin-top: 10px;
     margin-bottom: 30px;
 }
 
-close-slide {
+.close-slide {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -54,7 +54,7 @@ close-slide {
     cursor: pointer;
 }
 
-info-title {
+.info-title {
     margin-top: 5px;
     margin-bottom: 3px;
 }
