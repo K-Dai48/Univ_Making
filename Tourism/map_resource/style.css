@@ -14,18 +14,18 @@ h1 {
 /* leaflet */
 .leaflet-popup-content {
     color: red;
-  }
+}
 
 .leaflet-popup-content h3 {
     color: blue; /* タイトルの文字色を青に変更 */
-  }
+}
   
   .leaflet-popup-content p {
     color: green; /* パラグラフの文字色を緑に変更 */
-  }
+}
 
 
 .popup-photo {
-    max-height: 200px;
+    max-height: 50px;
     width: auto;
 }
