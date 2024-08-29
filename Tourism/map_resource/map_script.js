@@ -67,13 +67,12 @@ function setting() {
     const result = [];
 
     for (let i = 1; i < lines.length; i++) {
+      if (lines[i].trim() ==="") continue; //空行をスキップ
       const obj = {};
       const currentLine = lines[i].split(",");
-
       headers.forEach((header, j) => {
         obj[header.trim()] = currentLine[j].trim(); //ヘッダーをキー、データを値としてオブジェクトに
       });
-
       result.push(obj); //オブジェクトをリストに追加
     }
 
