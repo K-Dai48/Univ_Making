@@ -13,11 +13,7 @@ h1 {
 
 /* leaflet */
 .leaflet-popup-content-wrapper {
-    max-width: 200px; /* ポップアップの最大横幅を設定 */
-}
-
-.leaflet-popup-content {
-    color: red;
+    max-width: 300px; /* ポップアップの最大横幅を設定 */
 }
 
 .leaflet-popup-content h3 {
@@ -30,6 +26,6 @@ h1 {
 
 
 .popup-photo {
-    max-height: 50px;
+    max-height: 250px;
     width: auto;
 }
