@@ -83,18 +83,23 @@ function setting() {
   function addpoint(map, points) {
     points.forEach(point => {
       const marker = L.marker([point.lat, point.lon]).addTo(map); //マーカーを追加
-      const popupContent =`
-        <div class="popup-content">
-          <img src="${point.img}" alt="${point.name}" class="popup-photo" />
-          <div class="popup-text">
-            <h3>${point.name}</h3>
-            <p>${point.dsc}</p>
-          </div>
-        </div>
-      `;
-      marker.bindPopup(popupContent); //ポップアップの内容を設定
+
+      marker.on('click', () => {
+        //ピンをクリックしたらスライド表示
+        document.getElementById('info-title').innerText = point.name;
+        document.getElementById('info-dsc').innerText = point.dsc;
+        document.getElementById('info-img').src = point.img;
+
+        // スライドを表示
+        document.getElementById('info-slide').style.bottom = '0';
+      });
+    });
+
+    document.getElementById('close-slide').addEventListener('click', () => {
+      document.getElementById('info-slide').style.bottom = '-100%';
     });
   }
+
 
   loadCSVData('Tourism/map_resource/point.csv').then(points => {
     addpoint(map, points);

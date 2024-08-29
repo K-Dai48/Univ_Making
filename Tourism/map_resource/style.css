@@ -11,29 +11,39 @@ h1 {
     text-align: center; /* 中央揃え（任意） */
 }
 
-/* leaflet */
-.leaflet-popup-content-wrapper {
-    max-width: 400px; /* ポップアップの最大横幅を設定 */
+/* popupContent */
+.info-slide {
+    position: fixed;
+    bottom: -100%; /* 初期状態では画面外に隠す */
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.3);
+    transition: bottom 0.3s ease-in-out; /* スライドするアニメーション */
+    z-index: 1000; /* スライドが他の要素の上に表示されるように */
 }
 
-.popup-content {
+.info-content {
+    padding: 20px;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
-.popup-photo {
-    max-width: 150px;
-    max-width: 150px;
-    margin-right: 10px;
-}
-.popup-text {
-    flex: 1;
+.info-content img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
 }
 
-.leaflet-popup-content h3 {
-    color: blue; /* タイトルの文字色を青に変更 */
-}
-  
-.leaflet-popup-content p {
-    color: green; /* パラグラフの文字色を緑に変更 */
+.close-slide {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
 }
