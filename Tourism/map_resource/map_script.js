@@ -88,7 +88,7 @@ function setting() {
     });
   }
 
-  loadCSVData('path/to/your.csv').then(points => {
+  loadCSVData('point.csv').then(points => {
     addPointsToMap(map, points);
   });
 
