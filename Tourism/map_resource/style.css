@@ -17,7 +17,7 @@ h1 {
 }
 
 .leaflet-popup-content h3 {
-    color: blue; /* タイトルの文字色を青に変更 */
+    color: red; /* タイトルの文字色を青に変更 */
 }
   
   .leaflet-popup-content p {
