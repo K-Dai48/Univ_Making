@@ -12,13 +12,13 @@ h1 {
 }
 
 /* popupContent */
-.info-slide {
+info-slide {
     position: fixed;
     bottom: -100%; /* 初期状態では画面外に隠す */
     left: 0;
     width: 100%;
     height: 50%;
-    background: linear-gradient(to bottom, #eee8aa, #ffffff);
+    background: linear-gradient(to bottom, #ffffff, #f8b500);
     box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.3);
     transition: bottom 0.5s ease-in-out; /* スライドするアニメーション */
     z-index: 1000; /* スライドが他の要素の上に表示されるように */
@@ -26,7 +26,7 @@ h1 {
     border-top-left-radius: 15px;
 }
 
-.info-content {
+info-content {
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -36,14 +36,14 @@ h1 {
     overflow-y: auto;
 }
 
-.info-content img {
+info-img {
     max-width: 150px;
     height: auto;
     margin-top: 10px;
     margin-bottom: 30px;
 }
 
-.close-slide {
+close-slide {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -54,7 +54,7 @@ h1 {
     cursor: pointer;
 }
 
-.info-title {
+info-title {
     margin-top: 5px;
     margin-bottom: 3px;
 }
