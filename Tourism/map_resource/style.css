@@ -11,6 +11,11 @@ h1 {
     text-align: center; /* 中央揃え（任意） */
 }
 
+/* leaflet */
+.leaflet-popup-content-wrapper {
+    max-width: 300px;
+}
+
 .popup-photo {
     max-height: 200px;
     width: auto;
