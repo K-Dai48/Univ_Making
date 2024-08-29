@@ -53,13 +53,14 @@ h1 {
 }
 
 .info-img {
-    max-width: 150px;
+    max-width: 40%;
     height: auto;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
 .info-dsc {
-    max-width: 300px;
-    font-size: 11px;
+    max-width: 80%;
+    height: auto;
+    font-size: 14px;
 }
