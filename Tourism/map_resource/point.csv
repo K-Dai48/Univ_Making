@@ -1,4 +1,4 @@
-﻿name,type,description,latitude,longitude,image
+﻿name,type,dsc,lat,lon,img
 「牛がみえたら徐行」の看板,local,通行する但馬牛への注意を促す看板。全国でも珍しいかも...,35.42864611,134.5233082,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/busstop.JPG
 スノーボードのベンチ,local,大日堂にあるスノーボードで作られたベンチ。,35.42593275,134.5209671,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/dainichido.JPG
 小代物産館,sight,とれたて野菜や工芸品が販売されているほか、周辺地域の案内のパンフレットが置かれている。,35.468324,134.5481844,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/ojirobussan.JPG
