@@ -87,7 +87,7 @@ function setting() {
       marker.on('click', () => {
         //ピンをクリックしたらスライド表示
         document.getElementById('info-title').innerText = point.name;
-        document.getElementById('info-dsc').innerText = point.dsc;
+        document.getElementById('info-dsc').innerHTML = point.dsc;
         document.getElementById('info-img').src = point.img;
 
         // スライドを表示
