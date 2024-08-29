@@ -1,11 +1,11 @@
-﻿name,type,description,latitude,longitude,image
+﻿name,type,dsc,lat,lon,img
 「牛がみえたら徐行」の看板,local,通行する但馬牛への注意を促す看板。全国でも珍しいかも...,35.42864611,134.5233082,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/busstop.JPG
-スノーボードのベンチ,local,大日堂にあるスノーボードで作られたベンチ。,35.42593275,134.5209671,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/dainichido.JPG
+スノーボードのベンチ,local,大日堂にあるスノーボードで作られたベンチ。降雪地ならではの光景。,35.42593275,134.5209671,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/dainichido.JPG
 小代物産館,sight,とれたて野菜や工芸品が販売されているほか、周辺地域の案内のパンフレットが置かれている。,35.468324,134.5481844,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/ojirobussan.JPG
-眺望点１,local,鉢伏山を望む眺望の良い坂道。,35.42987841,134.514175,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/scape1.JPG
-眺望点２,local,山間部にある集落ならではの光景。田んぼも段となって広がっている。,35.4390127,134.5316992,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/scape4.JPG
-三段滝,sight,この周辺（久須部渓谷）はジオサイトに登録されている。約300万年前の火山活動によって形成された凝灰岩を流れる滝。,35.44671426,134.516204,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/taki1.JPG
+眺望点１,local,鉢伏山を望む眺望の良い坂道。歩くのも楽しい。夜は星空も美しい。,35.42987841,134.514175,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/scape1.JPG
+眺望点２,local,山間部の集落ならではの光景。向こうの山に段々田んぼが広がっている。,35.4390127,134.5316992,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/scape4.JPG
+三段滝,sight,周辺エリア（久須部渓谷）はジオサイトに登録されている。約300万年前の火山活動によって形成された凝灰岩を流れる滝。,35.44671426,134.516204,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/taki1.JPG
 滝見亭,meal,渓流沿いにある食事処。自然の豊かさを感じながら地元の食材を堪能できる。夏でも涼しい。,35.44680167,134.517314,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/takimitei.JPG
-うへ山の棚田,sight,"日本の棚田百選に認定された棚田。地滑り地を利用した棚田ということでジオサイトにも認定されている。地元住民の方々が、棚田を廃れさせまいと田んぼづくりに励み、美味しいお米を生産している。美味しさと共にお米につまった物語を知りたいかたはこちらへアクセス＞＞<a href=""https://uheyamamai.com"" target=""blank"">俺たちの武勇田</a>",35.44126426,134.5268621,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/tanada.JPG
+うへ山の棚田,sight,"日本の棚田百選に認定された棚田。地滑り地を利用した棚田ということでジオサイトにも認定されている。地元住民の方々が、棚田を廃れさせまいと田んぼづくりに励み、美味しいお米を生産している。美味しさと共にお米につまった物語を知りたいかたはこちらをクリック<a href='https://uheyamamai.com' target='_blank'>俺たちの武勇田</a>",35.44126426,134.5268621,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/tanada.JPG
 雌牛出産を告げる鐘,local,大日堂の近くにある鐘。昔は、雌牛が生まれた時にこの鐘をついて集落に伝えていた。この地域は繁殖農家（母牛を飼育し、子牛を産ませる農家）が多く、一家に一頭雌牛がいて、家族の一員として大切に育てられていた。そのため、雌牛が生まれた方が喜ばれた。,35.42586713,134.5210432,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/ushinokane.JPG
 吉滝,sight,ジオサイトの一つ。滝の裏側に入ることができる。現在、滝に向かう道は迂回する遊歩道のみ。,35.4374127,134.5108641,https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/taki2.JPG
