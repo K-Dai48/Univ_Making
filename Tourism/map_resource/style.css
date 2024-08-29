@@ -26,6 +26,5 @@ h1 {
 
 
 .popup-photo {
-    max-height: 250px;
-    width: auto;
+    max-width: 250px;
 }
