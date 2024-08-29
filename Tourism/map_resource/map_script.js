@@ -83,7 +83,7 @@ function setting() {
   function addpoint(map, points) {
     points.forEach(point => {
       const marker = L.marker([point.lat, point.lon]).addTo(map); //マーカーを追加
-      const popupContent =`<h3>${point.name}</h3><p>${point.dsc}</p><img src="${point.img}" alt="${point.name}" style="width:auto;height:50px;">`;
+      const popupContent =`<h3>${point.name}</h3><p>${point.dsc}</p><img src="${point.img}" alt="${point.name}" class="popup-photo" />`;
       marker.bindPopup(popupContent); //ポップアップの内容を設定
     });
   }

@@ -10,3 +10,8 @@ h1 {
     background-color: #f0f0f0; /* バックグラウンドカラー（任意） */
     text-align: center; /* 中央揃え（任意） */
 }
+
+.leaflet-popup-content img.popup-photo {
+    max-height: 200px;
+    width: auto;
+}
