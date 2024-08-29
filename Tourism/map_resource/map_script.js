@@ -80,56 +80,25 @@ function setting() {
     return result;
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    function addpoint(map, points) {
-        points.forEach(point => {
-            if (point.lat === undefined || point.lon === undefined) {
-                console.error('Invalid LatLng object:', point);
-                return;
-            }
+  function addpoint(map, points) {
+    points.forEach(point => {
+      const marker = L.marker([point.lat, point.lon]).addTo(map); //マーカーを追加
 
-            const marker = L.marker([point.lat, point.lon]).addTo(map);
+      marker.on('click', () => {
+        //ピンをクリックしたらスライド表示
+        document.getElementById('info-title').innerText = point.name;
+        document.getElementById('info-dsc').innerHTML = point.dsc;
+        document.getElementById('info-img').src = point.img;
 
-            marker.on('click', () => {
-                const titleElem = document.getElementById('info-title');
-                const dscElem = document.getElementById('info-dsc');
-                const imgElem = document.getElementById('info-img');
-                const slideElem = document.getElementById('info-slide');
+        // スライドを表示
+        document.getElementById('info-slide').style.bottom = '0';
+      });
+    });
 
-                if (titleElem && dscElem && imgElem && slideElem) {
-                    titleElem.innerText = point.name;
-                    dscElem.innerHTML = point.dsc;
-                    imgElem.src = point.img;
-
-                    slideElem.style.bottom = '0';
-                } else {
-                    console.error('One or more elements not found.');
-                }
-            });
-        });
-
-        const closeBtn = document.getElementById('close-slide');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => {
-                const slideElem = document.getElementById('info-slide');
-                if (slideElem) {
-                    slideElem.style.bottom = '-100%';
-                }
-            });
-        } else {
-            console.error('Close button not found.');
-        }
-    }
-
-    // Example call
-    fetch('path/to/your/points.csv')
-        .then(response => response.text())
-        .then(data => {
-            const points = parseCSV(data); // CSVパーサーの例
-            addpoint(map, points);
-        })
-        .catch(error => console.error('Error loading CSV:', error));
-});
+    document.getElementById('close-slide').addEventListener('click', () => {
+      document.getElementById('info-slide').style.bottom = '-100%';
+    });
+  }
 
 
   loadCSVData('Tourism/map_resource/point.csv').then(points => {
