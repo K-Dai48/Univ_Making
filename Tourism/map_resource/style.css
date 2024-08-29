@@ -12,6 +12,10 @@ h1 {
 }
 
 /* leaflet */
+.leaflet-popup-content-wrapper {
+    width: 300px; /* ポップアップの最大横幅を設定 */
+}
+
 .leaflet-popup-content {
     color: red;
 }
