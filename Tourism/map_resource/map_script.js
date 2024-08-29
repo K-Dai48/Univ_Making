@@ -61,10 +61,6 @@ function setting() {
       });
   }
 
-  loadCSVData('Tourism/map_resource/point.csv').then(points => {
-    addpoint(map, points);
-  });
-
   function parseCSVData(data) { //JavaScriptオブジェクトのリストに変換
     const lines = data.split("\n"); //csvを行ごとに分割
     const headers = lines[0].split(","); //ヘッダー行を分割して配列に
@@ -87,10 +83,14 @@ function setting() {
   function addpoint(map, points) {
     points.forEach(point => {
       const marker = L.marker([point.lat, point.lon]).addTo(map); //マーカーを追加
-      const popupContent =`<h3>${point.name}</h3><p>${point.dsc}</p><img src="${point.img}" alt="${point.name}" style="width:100%;height:auto;">`;
+      const popupContent =`<h3>${point.name}</h3><p>${point.dsc}</p><img src="${point.img}" alt="${point.name}" style="width:auto;height:100px;">`;
       marker.bindPopup(popupContent); //ポップアップの内容を設定
     });
   }
+
+  loadCSVData('Tourism/map_resource/point.csv').then(points => {
+    addpoint(map, points);
+  });
 
 }
 
