@@ -36,13 +36,6 @@ h1 {
     overflow-y: auto;
 }
 
-.info-img {
-    max-width: 150px;
-    height: auto;
-    margin-top: 10px;
-    margin-bottom: 30px;
-}
-
 .close-slide {
     position: absolute;
     top: 10px;
@@ -57,4 +50,16 @@ h1 {
 .info-title {
     margin-top: 5px;
     margin-bottom: 3px;
+}
+
+.info-img {
+    max-width: 150px;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.info-dsc {
+    max-width: 300px;
+    font-size: 11px;
 }
