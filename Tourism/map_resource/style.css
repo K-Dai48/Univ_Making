@@ -134,7 +134,7 @@ h1 span {
     box-shadow: 2 3 15px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width:800px) {
+@media (max-width:750px) {
     .popup {
         width: 100%; /* スマホでは幅を100%にする */
         height: 100%; /* スマホでは高さも100%にする */
