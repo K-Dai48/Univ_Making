@@ -26,10 +26,10 @@ h1 {
 h1 span {
     position: relative;
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 5px;
     padding: 5px 10px; /* 背景色のサイズを調整 */
     border-radius: 5px; /* 角を丸くする */
-    letter-spacing: 7px; /* 文字間隔 */
+    letter-spacing: 5px; /* 文字間隔 */
     color: #17184b;
     background: linear-gradient(90deg, rgba(154, 212, 252, 0.7), rgba(248, 184, 98, 0.7)); /* 左から右へのグラデーション */
 }
