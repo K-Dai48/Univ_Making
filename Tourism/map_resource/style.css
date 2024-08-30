@@ -134,6 +134,10 @@ h1 span {
     cursor: pointer;
 }
 
+#nav-link {
+    font-size: 11px;
+}
+
 .explain {
     margin: 0;
     padding: 0;
