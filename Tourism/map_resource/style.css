@@ -9,7 +9,7 @@ h1 {
     margin: 0; /* デフォルトのマージンを削除 */
     padding: 10px; /* 必要に応じてパディングを追加 */
     width: 100%;
-    max-width: 1600px;
+    max-width: 1200px;
     background-image: url(https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/header.png); /* バックグラウンドカラー（任意） */
     background-size: cover;
     background-position: center;
@@ -73,7 +73,7 @@ h1 {
 .info-dsc {
     max-width: 75%;
     height: auto;
-    color: 17184b;
+    color: #17184b;
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 20px;
