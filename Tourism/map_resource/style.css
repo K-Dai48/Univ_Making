@@ -16,6 +16,7 @@ h1 {
     background-repeat: no-repeat;
     text-align: center; /* 中央揃え（任意） */
     color: #ffffff;
+    border: 5px solid #008000;
     font-weight: 800;
 }
 /* leaflet */
