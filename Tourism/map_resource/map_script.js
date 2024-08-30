@@ -117,18 +117,16 @@ function setting() {
   });
 
   // ポップアップ関連のコード
-  document.addEventListener("DOMContentLoaded", function () {
-    const popup = document.querySelector('.popup');
-    const navLink = document.querySelector('.nav-link');
-    const closeButton = document.querySelector('.close-popup');
+  const popup = document.querySelector('#popup');
+  const navLink = document.querySelector('#nav-link');
+  const closeButton = document.querySelector('#close-popup');
 
-    navLink.addEventListener('click', function () {
-        popup.style.display = 'flex'; // ポップアップを表示
-    });
+  navLink.addEventListener('click', function () {
+    popup.style.display = 'flex'; // ポップアップを表示
+  });
 
-    closeButton.addEventListener('click', function () {
-        popup.style.display = 'none'; // ポップアップを閉じる
-    });
+  closeButton.addEventListener('click', function () {
+      popup.style.display = 'none'; // ポップアップを閉じる
   });
   
 }
