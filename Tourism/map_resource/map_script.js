@@ -116,13 +116,18 @@ function setting() {
     addpoint(map, points);
   });
 
-  document.getElementById('nav-link').addEventListener('click', function(event) {
-    event.preventDefault(); // リンクのデフォルトの動作を防ぐ
-    document.getElementById('popup').style.display = 'flex'; // ポップアップを表示
-  });
+  document.addEventListener("DOMContentLoaded", function () {
+    const popup = document.querySelector('.popup');
+    const navLink = document.querySelector('.nav-link');
+    const closeButton = document.querySelector('.close-popup');
 
-  document.getElementById('close-popup').addEventListener('click', function() {
-    document.getElementById('popup').style.display = 'none'; // ポップアップを非表示
+    navLink.addEventListener('click', function () {
+        popup.style.display = 'flex'; // ポップアップを表示
+    });
+
+    closeButton.addEventListener('click', function () {
+        popup.style.display = 'none'; // ポップアップを閉じる
+    });
   });
 
 }
