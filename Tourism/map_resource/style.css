@@ -14,9 +14,12 @@ h1 {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background: linear-gradient(90deg, #9ad4fc, #f8b862); /* 左から右へのグラデーション */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-align: left; /* 中央揃え（任意） */
     color: #ffffff;
-    border: 5px solid #008000;
+    border: 5px solid #c1e4e9;
     font-weight: 800;
     box-sizing: border-box; /* ボーダーを含めた全体の幅を調整 */
 }
@@ -26,7 +29,7 @@ h1 span {
     background-color: rgba(0, 0, 0, 0.5); /* 半透明な背景色 */
     padding: 5px 10px; /* 背景色のサイズを調整 */
     border-radius: 5px; /* 角を丸くする（任意） */
-    letter-spacing: 15px;
+    letter-spacing: 16px;
 }
 /* leaflet */
 
