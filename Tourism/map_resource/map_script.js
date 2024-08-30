@@ -79,9 +79,17 @@ function setting() {
     return result;
   }
 
+  var iconTypes = {
+    'meal': L.icon({ iconUrl: 'https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/icon1.png', iconSize: [32, 32] }),
+    'local': L.icon({ iconUrl: 'https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/icon2.png', iconSize: [32, 32] }),
+    'sight': L.icon({ iconUrl: 'https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/icon3.png', iconSize: [32, 32] })
+  };
+
   function addpoint(map, points) {
     points.forEach(point => {
-      const marker = L.marker([point.lat, point.lon]).addTo(map); //マーカーを追加
+      const marker = L.marker([point.lat, point.lon], {
+          icon: iconTypes[point.type] || iconTypes['sight']
+      }).addTo(map); //マーカーを追加
 
       marker.bindTooltip(point.name, {
         permanent: false, // 常に表示する場合はtrue、ホバー時のみ表示する場合はfalse
