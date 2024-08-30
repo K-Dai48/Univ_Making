@@ -209,3 +209,30 @@ nav {
     font-size: 16px;
     color: #cee4ae;
 }
+
+/* Location Get Searching */
+.location-info {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #f8f8f8;
+    padding: 10px;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+#location-info button {
+    background-color: #9ad4fc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#location-info button:hover {
+    background-color: #7ab6e0;
+}
