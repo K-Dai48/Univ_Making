@@ -30,7 +30,7 @@ function setting() {
       };
 
       //ベースマップの表示をコントロールする関数
-      L.control.layers(basemaps, null, { position: 'topright' }).addTo(map);
+      L.control.layers(basemaps).addTo(map);
 
       return map; // `map` オブジェクトを返す
 
