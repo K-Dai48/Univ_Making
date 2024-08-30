@@ -113,6 +113,7 @@ h1 span {
 }
 
 .popup-content {
+    color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     max-width: 80%;
