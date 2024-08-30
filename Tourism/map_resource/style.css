@@ -31,7 +31,7 @@ h1 span {
     border-radius: 5px; /* 角を丸くする */
     letter-spacing: 5px; /* 文字間隔 */
     color: #17184b;
-    font-size: 20px;
+    font-size: 18px;
     background: linear-gradient(90deg, rgba(154, 212, 252, 0.8), rgba(248, 184, 98, 0.8)); /* 左から右へのグラデーション */
 }
 
@@ -151,14 +151,14 @@ nav {
 }
 
 .nav-link {
-    font-size: 14px;
+    font-size: 12px;
     margin-right: 10px;
     padding: 5px 15px;
     background-color: rgba(0, 0, 0, 0.5); /* 黒の半透明背景 */
     color: #ffffff;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 1s ease;
 }
 
 .nav-link:hover {
