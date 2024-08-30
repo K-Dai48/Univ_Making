@@ -31,6 +31,7 @@ h1 span {
     border-radius: 5px; /* 角を丸くする */
     letter-spacing: 5px; /* 文字間隔 */
     color: #17184b;
+    font-size: 18px;
     background: linear-gradient(90deg, rgba(154, 212, 252, 0.7), rgba(248, 184, 98, 0.7)); /* 左から右へのグラデーション */
 }
 
@@ -135,7 +136,9 @@ h1 span {
 }
 
 #nav-link {
-    font-size: 11px;
+    font-size: 20px;
+    text-align: right;
+    background: rgba(rgba(0, 0, 0, 0.5));
 }
 
 .explain {
