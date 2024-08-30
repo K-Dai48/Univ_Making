@@ -124,11 +124,11 @@ h1 span {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: red;
+    background: #9ad4fc;
     color: white;
     border: none;
     border-radius: 50%;
-    width: 30px;
+    width: 50px;
     height: 30px;
     text-align: center;
     font-size: 18px;
@@ -166,7 +166,7 @@ nav {
 
 .explain {
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     margin: 0;
     padding: 0;
     list-style: circle;
