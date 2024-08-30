@@ -20,7 +20,7 @@ function setting() {
       //マップオブジェクトを作成
       var map = L.map('mapset', {zoomControl: false });
       osm.addTo(map); //オープンストリートマップをメインに設定
-      map.setView([35.4297, 134.5185], 12); // 初期位置を小代村に設定
+      map.setView([35.4297, 134.5185], 11); // 初期位置を小代村に設定
       
       //ベースマップをまとめた関数
       var basemaps = {
@@ -114,6 +114,15 @@ function setting() {
 
   loadCSVData('Tourism/map_resource/point.csv').then(points => {
     addpoint(map, points);
+  });
+
+  document.getElementById('nav-link').addEventListener('click', function(event) {
+    event.preventDefault(); // リンクのデフォルトの動作を防ぐ
+    document.getElementById('popup').style.display = 'flex'; // ポップアップを表示
+  });
+
+  document.getElementById('close-popup').addEventListener('click', function() {
+    document.getElementById('popup').style.display = 'none'; // ポップアップを非表示
   });
 
 }
