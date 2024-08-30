@@ -10,17 +10,17 @@ h1 {
     margin: 0; /* デフォルトのマージンを削除 */
     padding: 10px; /* 必要に応じてパディングを追加 */
     width: 100%;
-    background-image: url(https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/header.JPG); /* バックグラウンドカラー（任意） */
+    background-image: url(https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/header.JPG); /* バックグラウンド画像 */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    text-align: left; /* 中央揃え（任意） */
-    color: #ffffff;
-    border: 5px solid #c1e4e9;
-    font-weight: 800;
+    text-align: left; /* 左揃え */
+    color: #ffffff; /* 文字色 */
+    border: 5px solid #c1e4e9; /* ボーダー */
+    font-weight: 800; /* フォントの太さ */
     box-sizing: border-box; /* ボーダーを含めた全体の幅を調整 */
-    position: relative;
-    display: inline-block;
+    position: relative; /* 相対位置 */
+    display: inline-block; /* インラインブロック表示 */
 }
 
 h1 span {
@@ -29,11 +29,11 @@ h1 span {
     margin-left: 20px;
     background-color: rgba(0, 0, 0, 0.5); /* 半透明な背景色 */
     padding: 5px 10px; /* 背景色のサイズを調整 */
-    border-radius: 5px; /* 角を丸くする（任意） */
-    letter-spacing: 10px;
+    border-radius: 5px; /* 角を丸くする */
+    letter-spacing: 10px; /* 文字間隔 */
     background: linear-gradient(90deg, #9ad4fc, #f8b862); /* 左から右へのグラデーション */
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; /* グラデーションをテキストに適用 */
+    -webkit-text-fill-color: transparent; /* テキスト色を透明に */
 }
 /* leaflet */
 
