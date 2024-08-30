@@ -18,6 +18,7 @@ h1 {
     color: #ffffff;
     border: 5px solid #008000;
     font-weight: 800;
+    box-sizing: border-box; /* ボーダーを含めた全体の幅を調整 */
 }
 /* leaflet */
 
