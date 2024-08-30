@@ -15,8 +15,8 @@ h1 {
     background-position: center;
     background-repeat: no-repeat;
     background: linear-gradient(90deg, #9ad4fc, #f8b862); /* 左から右へのグラデーション */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     text-align: left; /* 中央揃え（任意） */
     color: #ffffff;
     border: 5px solid #c1e4e9;
