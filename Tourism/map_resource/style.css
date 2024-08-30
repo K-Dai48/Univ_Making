@@ -128,7 +128,7 @@ h1 span {
     justify-content: center;
     align-items: center;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 5 5 15px 5 rgba(0, 0, 0, 0.3);
 }
 
 .close-popup {
