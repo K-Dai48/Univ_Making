@@ -183,3 +183,9 @@ nav {
     padding: 0;
     list-style: circle;
 }
+
+.lead {
+    font-weight: 800;
+    font-size: 16px;
+    color: #cee4ae;
+}
