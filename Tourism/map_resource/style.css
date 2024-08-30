@@ -20,6 +20,12 @@ h1 {
     font-weight: 800;
     box-sizing: border-box; /* ボーダーを含めた全体の幅を調整 */
 }
+
+h1 span {
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明な背景色 */
+    padding: 5px 10px; /* 背景色のサイズを調整 */
+    border-radius: 5px; /* 角を丸くする（任意） */
+}
 /* leaflet */
 
 
