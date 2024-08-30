@@ -9,7 +9,6 @@ h1 {
     margin: 0; /* デフォルトのマージンを削除 */
     padding: 10px; /* 必要に応じてパディングを追加 */
     width: 100%;
-    max-width: 1200px;
     background-image: url(https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/header.JPG); /* バックグラウンドカラー（任意） */
     background-size: cover;
     background-position: center;
