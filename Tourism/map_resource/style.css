@@ -22,6 +22,7 @@ h1 {
 }
 
 h1 span {
+    margin-left: 20px;
     background-color: rgba(0, 0, 0, 0.5); /* 半透明な背景色 */
     padding: 5px 10px; /* 背景色のサイズを調整 */
     border-radius: 5px; /* 角を丸くする（任意） */
