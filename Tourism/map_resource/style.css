@@ -104,14 +104,14 @@ h1 span {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
-    height: 60%;
+    height: 70%;
     background-color: rgba(0, 0, 0, 0.7); /* 半透明な背景色 */
     display: none; /* 初期状態では非表示 */
     text-align: center;
     align-items: center;
     justify-content: center;
     z-index: 1001;
-    border-radius: 25%;
+    border-radius: 10px;
 }
 
 .popup-content {
