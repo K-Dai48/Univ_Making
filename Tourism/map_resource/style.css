@@ -222,6 +222,7 @@ nav {
     text-align: center;
     font-size: 14px;
     color: #333;
+    z-index: 999;
 }
 
 #location-info button {
