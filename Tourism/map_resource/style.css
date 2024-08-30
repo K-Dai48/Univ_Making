@@ -115,9 +115,10 @@ h1 span {
 .popup-content {
     padding: 20px;
     border-radius: 10px;
-    width: 90%;
+    width: 80%;
     max-width: 600px;
     position: relative;
+    color: white;
 }
 
 .close-popup {
