@@ -135,13 +135,31 @@ h1 span {
     cursor: pointer;
 }
 
-#nav-link {
-    font-size: 20px;
-    text-align: right;
-    background: rgba(rgba(0, 0, 0, 0.5));
+nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-link {
+    margin-right: 10px;
+    padding: 5px 15px;
+    background-color: rgba(0, 0, 0, 0.5); /* 黒の半透明背景 */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* ホバー時に少し濃くする */
 }
 
 .explain {
+    font-size: 14px;
     margin: 0;
     padding: 0;
     list-style: circle;
