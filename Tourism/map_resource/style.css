@@ -11,6 +11,13 @@ h1 {
     background-color: #f0f0f0; /* バックグラウンドカラー（任意） */
     text-align: center; /* 中央揃え（任意） */
 }
+/* leaflet */
+.leaflet-control-layers {
+    position: absolute !important;
+    top: 10px; /* h1のトップマージンと同じにする */
+    right: 10px; /* 右側に寄せる */
+    z-index: 1001; /* h1より上に表示されるように */
+}
 
 /* popupContent */
 .info-slide {
