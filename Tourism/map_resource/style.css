@@ -104,7 +104,7 @@ h1 span {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
-    height: 80%;
+    height: 90%;
     background-color: rgba(0, 0, 0, 0.7); /* 半透明な背景色 */
     display: none; /* 初期状態では非表示 */
     text-align: center;
@@ -151,7 +151,7 @@ h1 span {
 
 h2 {
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 800;
     color: #98d98e;
 }
