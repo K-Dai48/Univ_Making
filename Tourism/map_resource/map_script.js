@@ -117,20 +117,26 @@ function setting() {
   });
 
   document.addEventListener("DOMContentLoaded", function () {
-    const popup = document.querySelector('.popup');
-    const navLink = document.querySelector('.nav-link');
-    const closeButton = document.querySelector('.close-popup');
+    const popup = document.querySelector('#popup');
+    const navLink = document.querySelector('#nav-link');
+    const closeButton = document.querySelector('#close-popup');
 
-    navLink.addEventListener('click', function () {
-        popup.style.display = 'flex'; // ポップアップを表示
-    });
+    if (navLink && popup && closeButton) {
+        console.log("Elements found. Event listeners are being set.");
+        navLink.addEventListener('click', function () {
+            console.log("Nav link clicked.");
+            popup.style.display = 'flex'; // ポップアップを表示
+        });
 
-    closeButton.addEventListener('click', function () {
-        popup.style.display = 'none'; // ポップアップを閉じる
-    });
+        closeButton.addEventListener('click', function () {
+            console.log("Close button clicked.");
+            popup.style.display = 'none'; // ポップアップを閉じる
+        });
+    } else {
+        console.error("One or more elements not found.");
+    }
+
+    // 地図とポイントの設定
+    setting();
   });
-
 }
-
-// DOMが完全に読み込まれた後に `setting` 関数を実行
-document.addEventListener("DOMContentLoaded", setting, false);
