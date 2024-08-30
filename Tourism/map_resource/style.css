@@ -30,11 +30,8 @@ h1 span {
     padding: 5px 10px; /* 背景色のサイズを調整 */
     border-radius: 5px; /* 角を丸くする */
     letter-spacing: 10px; /* 文字間隔 */
-    background: rgba(0, 0, 0, 0.5); /* 半透明な背景色 */
-    color: transparent;
-    -webkit-background-clip: text;
+    color: #17184b;
     background: linear-gradient(90deg, #9ad4fc, #f8b862); /* 左から右へのグラデーション */
-    -webkit-text-fill-color: transparent; /* テキスト色を透明に */
 }
 
 /* leaflet */
