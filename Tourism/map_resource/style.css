@@ -184,6 +184,7 @@ nav {
     margin: 0;
     padding: 0;
     list-style: circle;
+    margin-bottom: 5px;
 }
 
 .lead {
