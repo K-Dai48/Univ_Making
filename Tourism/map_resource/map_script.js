@@ -83,6 +83,11 @@ function setting() {
     points.forEach(point => {
       const marker = L.marker([point.lat, point.lon]).addTo(map); //マーカーを追加
 
+      marker.bindTooltip(point.name, {
+        permanent: false, // 常に表示する場合はtrue、ホバー時のみ表示する場合はfalse
+        direction: 'top'  // ツールチップの表示位置
+      });
+
       marker.on('click', () => {
         //ピンをクリックしたらスライド表示
         document.getElementById('info-title').innerText = point.name;
