@@ -117,21 +117,20 @@ function setting() {
   });
 
   // ポップアップ関連のコード
-  const popup = document.querySelector('#popup');
-  const navLink = document.querySelector('#nav-link');
-  const closeButton = document.querySelector('#close-popup');
+  document.addEventListener("DOMContentLoaded", function () {
+    const popup = document.querySelector('.popup');
+    const navLink = document.querySelector('.nav-link');
+    const closeButton = document.querySelector('.close-popup');
 
-  if (navLink && popup && closeButton) {
-      navLink.addEventListener('click', function () {
-          popup.style.display = 'flex';
-      });
+    navLink.addEventListener('click', function () {
+        popup.style.display = 'flex'; // ポップアップを表示
+    });
 
-      closeButton.addEventListener('click', function () {
-          popup.style.display = 'none';
-      });
-  } else {
-      console.error("One or more elements not found.");
-  }
+    closeButton.addEventListener('click', function () {
+        popup.style.display = 'none'; // ポップアップを閉じる
+    });
+  });
+  
 }
 
 // DOMが完全に読み込まれた後に `setting` 関数を実行
