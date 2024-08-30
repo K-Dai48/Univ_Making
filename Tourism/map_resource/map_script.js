@@ -80,9 +80,9 @@ function setting() {
   }
 
   var iconTypes = {
-    'meal': L.icon({ iconUrl: 'https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/icon1.png', iconSize: [32, 32] }),
-    'local': L.icon({ iconUrl: 'https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/icon2.png', iconSize: [32, 32] }),
-    'sight': L.icon({ iconUrl: 'https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/icon3.png', iconSize: [32, 32] })
+    'meal': L.icon({ iconUrl: 'https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/icon1.png', iconSize: [28, 28] }),
+    'local': L.icon({ iconUrl: 'https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/icon2.png', iconSize: [28, 28] }),
+    'sight': L.icon({ iconUrl: 'https://github.com/K-Dai48/Univ_Making/raw/main/Tourism/photo/icon3.png', iconSize: [28, 28] })
   };
 
   function addpoint(map, points) {
