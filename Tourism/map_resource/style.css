@@ -188,7 +188,7 @@ nav {
 }
 
 .lead {
-    margin-bottom: 0;
+    margin-bottom: 1px;
     font-weight: 600;
     font-size: 16px;
     color: #cee4ae;
