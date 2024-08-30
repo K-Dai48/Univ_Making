@@ -111,6 +111,7 @@ h1 span {
     align-items: center;
     justify-content: center;
     z-index: 1001;
+    border-radius: 25%;
 }
 
 .popup-content {
