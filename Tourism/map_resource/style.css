@@ -216,7 +216,7 @@ nav {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(90deg, rgba(154, 212, 252, 0.8), rgba(248, 184, 98, 0.8));
+    background: linear-gradient(90deg, rgba(154, 212, 252), rgba(248, 184, 98));
     padding: 10px;
     box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.3);
     text-align: center;
@@ -226,7 +226,7 @@ nav {
 }
 
 #location-info button {
-    background-color: #9ad4fc;
+    background-color: #89c3eb;
     color: white;
     border: none;
     border-radius: 5px;
@@ -236,4 +236,8 @@ nav {
 
 #location-info button:hover {
     background-color: #7ab6e0;
+}
+
+#location-data {
+
 }
