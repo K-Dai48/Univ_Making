@@ -226,13 +226,13 @@ nav {
 }
 
 #get-location {
+    background-color: #9ad4fc;
+    color: #17184b;
     margin-left: 20px;
     font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 }
 
 #current-location {
-    background-color: #9ad4fc;
-    color: #17184b;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
