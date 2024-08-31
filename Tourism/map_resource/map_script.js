@@ -143,8 +143,8 @@ function setting() {
             nearestSiteText.innerText = '';
         }
 
-        nearestSiteElement.classList.add("emphasized-text");
-        
+        nearestSiteText.classList.add("emphasized-text");
+
     });
 }
 
