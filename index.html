@@ -22,7 +22,7 @@
     <style>
         #mapset {
             width: 100vw;
-            height: calc(100vh - 150px);
+            height: calc(100vh - 120px);
             padding: 0;
             margin: 0;
             box-sizing: border-box;
@@ -74,14 +74,17 @@
 
     <!-- 現在地取得ボタン -->
     <div id="location-container" class="location-container">
+        <!-- ボタンと位置情報の表示をまとめた部分 -->
         <div id="location-info">
             <button id="get-location">位置情報取得</button>
             <p id="current-location">現在地 >> 緯度:  <span id="current-lat"></span>経度: <span id="current-lon"></span></p>
         </div>
-        <br>
-        <div id="nearest-site-container" style="text-align: center; margin-top: 10px;">
+
+        <!-- 近い観光サイトの情報を表示する部分 -->
+        <div id="nearest-site-container">
             <p id="nearest-site">現在地から最も近い小代の観光サイトは <span></span></p>
         </div>
+
     </div>
 
     <!-- 読み込みgeojson-->
