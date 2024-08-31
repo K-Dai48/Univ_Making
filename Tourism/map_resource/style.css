@@ -252,7 +252,7 @@ nav {
     text-align: center;
 }
 
-#nearest-site span {
+.emphasized-text {
     font-weight: bold;
     color: #1e50a2; /* 例: 赤色で強調 */
     font-size: 16px;
