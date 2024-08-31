@@ -124,65 +124,71 @@ function setting() {
       popup.style.display = 'none'; // ポップアップを閉じる
   });
 
-  function getCurrentLocation() {
-    return new Promise((resolve, reject) => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          position => resolve([position.coords.latitude, position.coords.longitude]),
-          error => reject(error)
-        );
-      } else {
-        reject(new Error('Geolocation is not supported by this browser.'));
-      }  
-    });
-  }
-
-  function calcDistance(lat1, lon1, lat2, lon2) {
-    const R = 6371; //地球の半径(km)
-    const dLat = (lat2 - lat1) * Math.PI / 180;
-    const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI /180) *
-              Math.sin(dLon / 2) * Math.sin(dLon / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c; //距離(km)
-  }
-
-  async function findClosestPoint(points) {
-    const [currentLat, currentLon] = await getCurrentLocation();
-    let closestPoint = null;
-    let minDistance = Infinity;
-
-    points.forEach(point => {
-      const distance = calcDistance(currentLat, currentLon, point.lat, point.lon);
-      if (distance < minDistance) {
-        minDistance =distance;
-        closestPoint = point;
-      }
-    });
-
-    return { closestPoint, minDistance };
-  }
-
   function setupLocationButton(points) {
     const getLocationButton = document.getElementById('get-location');
     const currentLocationText = document.getElementById('current-location');
     const nearestSiteText = document.getElementById('nearest-site');
-  
+
     getLocationButton.addEventListener('click', async () => {
-      try {
-        const [currentLat, currentLon] = await getCurrentLocation();
-        currentLocationText.innerText = `現在地: 緯度 ${currentLat.toFixed(6)}, 経度 ${currentLon.toFixed(6)}`;
-        
-        const { closestPoint, minDistance } = await findClosestPoint(points);
-        nearestSiteText.innerText = `現在地から最も近い観光サイトは ${closestPoint.name}（距離: ${minDistance.toFixed(2)} km）`;
-      } catch (error) {
-        console.error(error);
-        currentLocationText.innerText = '位置情報の取得に失敗しました。';
-        nearestSiteText.innerText = '';
-      }
+        try {
+            const [currentLat, currentLon] = await getCurrentLocation();
+            currentLocationText.innerText = `現在地: 緯度 ${currentLat.toFixed(6)}, 経度 ${currentLon.toFixed(6)}`;
+
+            const { closestPoint, minDistance } = findNearestSpot(currentLat, currentLon, points);
+            nearestSiteText.innerText = `現在地から最も近い観光サイトは ${closestPoint.name}（距離: ${minDistance.toFixed(2)} km）`;
+        } catch (error) {
+            console.error(error);
+            currentLocationText.innerText = '位置情報の取得に失敗しました。';
+            nearestSiteText.innerText = '';
+        }
     });
-  }
+}
+
+// 位置情報を取得する関数
+async function getCurrentLocation() {
+    return new Promise((resolve, reject) => {
+        if (!navigator.geolocation) {
+            reject('Geolocation is not supported by this browser.');
+        }
+        navigator.geolocation.getCurrentPosition(
+            position => resolve([position.coords.latitude, position.coords.longitude]),
+            error => reject(error)
+        );
+    });
+}
+
+// 最も近いポイントを見つける関数
+function findNearestSpot(lat, lon, points) {
+    let closestPoint = null;
+    let minDistance = Infinity;
+
+    points.forEach(point => {
+        const distance = calculateDistance(lat, lon, point.lat, point.lon);
+        if (distance < minDistance) {
+            minDistance = distance;
+            closestPoint = point;
+        }
+    });
+
+    return { closestPoint, minDistance };
+}
+
+// 緯度経度間の距離を計算する関数
+function calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // 地球の半径（キロメートル）
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+              Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+              Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+}
+
+// 度をラジアンに変換する関数
+function toRad(deg) {
+    return deg * (Math.PI / 180);
+}
   
   // 地図作成後にボタンの設定を行う
   loadCSVData('Tourism/map_resource/point.csv').then(points => {

@@ -22,7 +22,7 @@
     <style>
         #mapset {
             width: 100vw;
-            height: calc(100vh - 120px);
+            height: calc(100vh - 150px);
             padding: 0;
             margin: 0;
             box-sizing: border-box;
@@ -75,8 +75,10 @@
     <!-- 現在地取得ボタン -->
     <div id="location-info" class="location-info">
         <button id="get-location">現在の位置情報を取得</button>
-        <p id="current-location"></p>
-        <p id="nearest-site"></p>
+        <div id="location-data">
+            <p>現在地の緯度経度: <span id="current-latlon"></span></p>
+            <p>現在地から最も近い小代の観光サイトは <span id="nearest-spot-name"></span></p>
+        </div>
     <div>
 
     <!-- 読み込みgeojson-->
