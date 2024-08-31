@@ -227,8 +227,7 @@ nav {
 
 #get-location {
     height: 50px; /* ボタンの高さを固定 */
-    line-height: 50px; /* テキストを縦に中央揃え */
-    padding: 0 20px; /* ボタンの内側のパディング */
+    padding: 0; /* ボタンの内側のパディング */
     display: flex; /* Flexboxを使って中央揃え */
     align-items: center; /* 縦方向の中央揃え */
     justify-content: center; /* 横方向の中央揃え */
