@@ -143,9 +143,6 @@ function setting() {
             currentLocationText.innerText = '位置情報の取得に失敗しました。';
             nearestSiteText.innerText = '';
         }
-
-        nearestSiteText.classList.add("emphasized-text");
-
     });
 }
 
