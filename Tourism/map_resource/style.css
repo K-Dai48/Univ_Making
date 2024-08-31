@@ -220,10 +220,10 @@ nav {
     width: 100%;
     background: linear-gradient(90deg, rgba(154, 212, 252), rgba(248, 184, 98));
     padding: 10px;
-    text-align: center;
     font-size: 12px;
     color: #17184b;
     z-index: 1005;
+    flex-wrap: wrap;
 }
 
 #get-location {
@@ -234,15 +234,18 @@ nav {
 #current-location {
     margin: 0 0 0 5px;
     font-family: Arial, Helvetica, sans-serif;
+    flex-basis: 100%;
 }
 
 #nearest-site-container {
+    width: 100%;
     margin-top: 10px;
     text-align: center;
 }
 
 #nearest-site {
-    margin: 0;
+    margin: 0 auto;
     max-width: 80%;
     font-size: 14px;
+    text-align: center;
 }
