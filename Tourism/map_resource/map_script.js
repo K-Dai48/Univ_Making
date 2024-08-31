@@ -132,7 +132,7 @@ function setting() {
     getLocationButton.addEventListener('click', async () => {
         try {
             const [currentLat, currentLon] = await getCurrentLocation();
-            document.getElementById('current-lat').innerText = currentLat.toFixed(6) + ' ';
+            document.getElementById('current-lat').innerText = currentLat.toFixed(6) + '  ';
             document.getElementById('current-lon').innerText = currentLon.toFixed(6);
 
             const { closestPoint, minDistance } = findNearestSpot(currentLat, currentLon, points);
