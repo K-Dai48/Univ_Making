@@ -32,30 +32,6 @@ function setting() {
       //ベースマップの表示をコントロールする関数
       L.control.layers(basemaps).addTo(map);
 
-      map.on('mousemove', function(e) {
-        const lat = e.latlng.lat.toFixed(6);
-        const lon = e.latlng.lng.toFixed(6);
-        document.getElementById('current-lat').innerText = lat;
-        document.getElementById('current-lon').innerText = lon;
-        // 高度取得は地図タイルやAPIから別途取得する必要がある
-      });
-
-      map.on('click', function(e) {
-        const lat = e.latlng.lat.toFixed(6);
-        const lon = e.latlng.lng.toFixed(6);
-        
-        // 国土地理院の標高データを取得
-        getElevation(lat, lon).then(elevation => {
-            // h1の下部分、地図の上部分に位置情報を表示
-            document.getElementById('location-info').innerHTML = 
-                `緯度: ${lat} 経度: ${lon} 標高: ${elevation.toFixed(2)}m`;
-        }).catch(error => {
-            console.error('標高の取得に失敗しました:', error);
-            document.getElementById('location-info').innerHTML = 
-                `緯度: ${lat} 経度: ${lon} 標高情報の取得に失敗しました`;
-        });
-      });
-
       return map; // `map` オブジェクトを返す
 
   }
@@ -149,15 +125,13 @@ function setting() {
   });
 
   function setupLocationButton(points) {
-    let currentLocation = {};
-
     const getLocationButton = document.getElementById('get-location');
     const currentLocationText = document.getElementById('current-location');
     const nearestSiteText = document.getElementById('nearest-site');
 
     getLocationButton.addEventListener('click', async () => {
         try {
-            const [currentLat, currentLon, currentAlt] = await getCurrentLocation();
+            const [currentLat, currentLon] = await getCurrentLocation();
             document.getElementById('current-lat').innerText = currentLat.toFixed(6) + '  ';
             document.getElementById('current-lon').innerText = currentLon.toFixed(6);
 
@@ -173,19 +147,6 @@ function setting() {
     });
 }
 
-function setupCursorLocation(map) {
-    map.on('mousemove', function (e) {
-      const cursorLat = e.latlng.lat.toFixed(6);
-      const cursorLon = e.latlng.lng.toFixed(6);
-      const cursorElevation = await getElevation(cursorLat, cursorLon);
-
-      document.getElementById('cursor-lat').innerText = cursorLat + '  ';
-      document.getElementById('cursor-lon').innerText = cursorLon;
-      document.getElementById('cursor-elevation').innerText = cursorElevation ? cursorElevation.toFixed(2) + 'm' : 'N/A';
-    });
-}
-
-
 // 位置情報を取得する関数
 async function getCurrentLocation() {
     return new Promise((resolve, reject) => {
@@ -193,22 +154,10 @@ async function getCurrentLocation() {
             reject('Geolocation is not supported by this browser.');
         }
         navigator.geolocation.getCurrentPosition(
-            position => resolve([position.coords.latitude, position.coords.longitude, position.coords.altitude]),
+            position => resolve([position.coords.latitude, position.coords.longitude]),
             error => reject(error)
         );
     });
-}
-
-async function getElevation(lat, lon) {
-    const url = `https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lat=${lat}&lon=${lon}&outtype=JSON`
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      return data.elevation; //標高情報を返す
-    } catch (error) {
-        console.error('Error retrieving elevation data:', error);
-        return null;
-    }
 }
 
 // 最も近いポイントを見つける関数
@@ -253,7 +202,4 @@ function toRad(deg) {
 }
 
 // DOMが完全に読み込まれた後に `setting` 関数を実行
-document.addEventListener("DOMContentLoaded", () => {
-    setting();
-    setupCursorLocation(map);
-}, false);
+document.addEventListener("DOMContentLoaded", setting, false);
