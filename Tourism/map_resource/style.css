@@ -236,11 +236,15 @@ nav {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#nearest-site-container {
+    margin-top: 10px;
+    text-align: center;
+}
 
 #nearest-site {
     display: inline-block;
     text-align: center;
-    margin-top: 10px;
-    max-width: 70%;
+    margin: 0;
+    max-width: 80%;
     font-size: 14px;
 }
