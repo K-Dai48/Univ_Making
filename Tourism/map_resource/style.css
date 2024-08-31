@@ -238,8 +238,8 @@ nav {
 
 
 #nearest-site {
+    text-align: center;
+    margin-top: 10px;
     max-width: 70%;
     font-size: 14px;
-    margin-top: 10px;
-    text-align: center;
 }
