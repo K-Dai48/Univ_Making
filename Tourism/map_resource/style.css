@@ -242,8 +242,6 @@ nav {
 }
 
 #nearest-site {
-    display: inline-block;
-    text-align: center;
     margin: 0;
     max-width: 80%;
     font-size: 14px;
