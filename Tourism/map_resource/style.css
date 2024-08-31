@@ -213,8 +213,8 @@ nav {
 /* Location Get Searching */
 #location-container {
     background: linear-gradient(90deg, rgba(154, 212, 252, 1), rgba(248, 184, 98, 1));
-    padding: 10px;
-    font-size: 12px;
+    padding: 5px;
+    font-size: 11px;
     color: #17184b;
     z-index: 1005;
 }
@@ -226,10 +226,10 @@ nav {
 }
 
 #get-location {
-    font-size: 13px;
+    font-size: 11px;
     background-color: #9ad4fc;
     color: #17184b;
-    margin-left: 20px;
+    margin-left: 10px;
     font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 }
 
@@ -240,7 +240,7 @@ nav {
 }
 
 #nearest-site-container {
-    width: 70%;
+    width: 90%;
     margin-top: 5px;
     text-align: center;
 }
