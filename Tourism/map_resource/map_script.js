@@ -40,12 +40,20 @@ function setting() {
         // 高度取得は地図タイルやAPIから別途取得する必要がある
       });
 
-      map.on('click', async function(e) {
-        const lat = e.latlng.lat;
-        const lon = e.latlng.lng;
-    
-        const elevation = await getElevation(lat, lon);
-        alert(`緯度: ${lat.toFixed(6)}, 経度: ${lon.toFixed(6)}, 標高: ${elevation ? elevation.toFixed(2) : '取得失敗'} m`);
+      map.on('click', function(e) {
+        const lat = e.latlng.lat.toFixed(6);
+        const lon = e.latlng.lng.toFixed(6);
+        
+        // 国土地理院の標高データを取得
+        getElevation(lat, lon).then(elevation => {
+            // h1の下部分、地図の上部分に位置情報を表示
+            document.getElementById('location-info').innerHTML = 
+                `緯度: ${lat} 経度: ${lon} 標高: ${elevation.toFixed(2)}m`;
+        }).catch(error => {
+            console.error('標高の取得に失敗しました:', error);
+            document.getElementById('location-info').innerHTML = 
+                `緯度: ${lat} 経度: ${lon} 標高情報の取得に失敗しました`;
+        });
       });
 
       return map; // `map` オブジェクトを返す
