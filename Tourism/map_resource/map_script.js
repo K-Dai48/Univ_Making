@@ -136,7 +136,8 @@ function setting() {
             document.getElementById('current-lon').innerText = currentLon.toFixed(6);
 
             const { closestPoint, minDistance } = findNearestSpot(currentLat, currentLon, points);
-            nearestSiteText.innerText = `現在地から最も近いおじろの観光サイトは ${closestPoint.name}（距離: ${minDistance.toFixed(2)} km）`;
+            nearestSiteText.innerHTML = `現在地から最も近いおじろの観光サイトは 
+              <span class="emphasize-text">${closestPoint.name}（距離: ${minDistance.toFixed(2)} km）`;
         } catch (error) {
             console.error(error);
             currentLocationText.innerText = '位置情報の取得に失敗しました。';
