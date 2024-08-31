@@ -36,6 +36,19 @@ function setting() {
 
   }
 
+  function handleButtonClick() {
+    const button = document.getElementById('get-location');
+    button.disabled = true; // ボタンを無効にする
+    button.innerText = '取得中...'; // テキストを変更する
+  
+    // 位置情報取得の処理を実行
+    // 処理が終わったらボタンを再度有効にし、テキストを元に戻す
+    setTimeout(() => {
+      button.disabled = false;
+      button.innerText = '位置情報取得';
+    }, 2000); // 処理が完了するまでの時間（ここでは2秒）
+  }
+
   //ポリゴン追加の関数
   function addpolygon(map) {
       // 小代区のポリゴンを追加
