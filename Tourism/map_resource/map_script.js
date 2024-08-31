@@ -164,7 +164,7 @@ function setting() {
 
             const { closestPoint, minDistance } = findNearestSpot(currentLat, currentLon, points);
             const nearestSiteText = document.querySelector("#nearest-site span");
-            nearestSiteText.innerHTML = ` <span class="emphasized-text">${closestPoint.name}</span>（直線距離: ${minDistance.toFixed(2)} km）`;
+            nearestSiteText.innerHTML = ` <span class="emphasized-text">${closestPoint.name}</span><br>（直線距離: ${minDistance.toFixed(2)} km）`;
 
         } catch (error) {
             console.error(error);
