@@ -32,6 +32,22 @@ function setting() {
       //ベースマップの表示をコントロールする関数
       L.control.layers(basemaps).addTo(map);
 
+      map.on('mousemove', function(e) {
+        const lat = e.latlng.lat.toFixed(6);
+        const lon = e.latlng.lng.toFixed(6);
+        document.getElementById('current-lat').innerText = lat;
+        document.getElementById('current-lon').innerText = lon;
+        // 高度取得は地図タイルやAPIから別途取得する必要がある
+      });
+
+      map.on('click', async function(e) {
+        const lat = e.latlng.lat;
+        const lon = e.latlng.lng;
+    
+        const elevation = await getElevation(lat, lon);
+        alert(`緯度: ${lat.toFixed(6)}, 経度: ${lon.toFixed(6)}, 標高: ${elevation ? elevation.toFixed(2) : '取得失敗'} m`);
+      });
+
       return map; // `map` オブジェクトを返す
 
   }
@@ -131,9 +147,17 @@ function setting() {
 
     getLocationButton.addEventListener('click', async () => {
         try {
-            const [currentLat, currentLon] = await getCurrentLocation();
+            const [currentLat, currentLon, currentAlt] = await getCurrentLocation();
             document.getElementById('current-lat').innerText = currentLat.toFixed(6) + '  ';
             document.getElementById('current-lon').innerText = currentLon.toFixed(6);
+
+            //標高情報の取得
+            const elevation = await getElevation(currentLat, currentLon);
+            if (elevation !==null) {
+                  document.getElementById('current-elevation').innerText = `標高: ${elevation.toFixed(2)} m`;
+            } else {
+                  document.getElementById('current-elevation'),innerText = `標高: 取得失敗`;
+            }
 
             const { closestPoint, minDistance } = findNearestSpot(currentLat, currentLon, points);
             const nearestSiteText = document.querySelector("#nearest-site span");
@@ -154,10 +178,22 @@ async function getCurrentLocation() {
             reject('Geolocation is not supported by this browser.');
         }
         navigator.geolocation.getCurrentPosition(
-            position => resolve([position.coords.latitude, position.coords.longitude]),
+            position => resolve([position.coords.latitude, position.coords.longitude, position.coords.altitude]),
             error => reject(error)
         );
     });
+}
+
+async function getElevation(lat, lon) {
+    const url = `https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lat=${lat}&lon=${lon}&outtype=JSON`
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      return data.elevation; //標高情報を返す
+    } catch (error) {
+        console.error('Error retrieving elevation data:', error);
+        return null;
+    }
 }
 
 // 最も近いポイントを見つける関数
