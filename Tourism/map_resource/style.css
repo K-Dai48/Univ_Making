@@ -212,12 +212,13 @@ nav {
 
 /* Location Get Searching */
 #location-container {
-    height: 33.3%;
+    height: 300px;
     background: linear-gradient(90deg, rgba(154, 212, 252, 1), rgba(248, 184, 98, 1));
     padding: 5px;
     font-size: 11px;
     color: #17184b;
     z-index: 1005;
+    overflow: auto;
 }
 
 #location-info {
