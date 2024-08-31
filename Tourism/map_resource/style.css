@@ -226,7 +226,7 @@ nav {
 }
 
 #get-location {
-    font-size: 14px;
+    font-size: 13px;
     background-color: #9ad4fc;
     color: #17184b;
     margin-left: 20px;
@@ -234,7 +234,7 @@ nav {
 }
 
 #current-location {
-    font-size: 16px;
+    font-size: 14px;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
