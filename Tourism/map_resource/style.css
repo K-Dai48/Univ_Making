@@ -226,6 +226,7 @@ nav {
 }
 
 #get-location {
+    width: 70px;
     height: 50px; /* ボタンの高さを固定 */
     padding: 0; /* ボタンの内側のパディング */
     display: flex; /* Flexboxを使って中央揃え */
