@@ -226,8 +226,13 @@ nav {
     z-index: 1005;
 }
 
+#get-location {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #current-location {
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #location-info button {
