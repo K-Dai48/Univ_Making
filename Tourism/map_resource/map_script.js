@@ -132,8 +132,9 @@ function setting() {
     getLocationButton.addEventListener('click', async () => {
         try {
             const [currentLat, currentLon] = await getCurrentLocation();
-            currentLocationText.innerText = `現在地: 緯度 ${currentLat.toFixed(6)}, 経度 ${currentLon.toFixed(6)}`;
-
+            document.getElementById('current-lat').innerText = currentLat.toFixed(6);
+            document.getElementById('current-lon').innerText = currentLon.toFixed(6);
+            
             const { closestPoint, minDistance } = findNearestSpot(currentLat, currentLon, points);
             nearestSiteText.innerText = `現在地から最も近い観光サイトは ${closestPoint.name}（距離: ${minDistance.toFixed(2)} km）`;
         } catch (error) {
