@@ -124,6 +124,18 @@ function setting() {
       popup.style.display = 'none'; // ポップアップを閉じる
   });
 
+  async function getElevation(lat, lon) {
+    const url = `https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lat=${lat}&lon=${lon}&outtype=JSON`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      return data.elevation;
+    } catch (error) {
+      console.error('Error retrieving elevation data:', error);
+      return null;
+    }
+  }
+
   function setupLocationButton(points) {
     const getLocationButton = document.getElementById('get-location');
     const currentLocationText = document.getElementById('current-location');
@@ -133,7 +145,11 @@ function setting() {
         try {
             const [currentLat, currentLon] = await getCurrentLocation();
             document.getElementById('current-lat').innerText = currentLat.toFixed(6) + '  ';
-            document.getElementById('current-lon').innerText = currentLon.toFixed(6);
+            document.getElementById('current-lon').innerText = currentLon.toFixed(6) + '  ';
+
+            // 標高情報を取得
+            const elevation = await getElevation(currentLat, currentLon);
+            document.getElementById('current-elev').innerText = elevation ? elevation.toFixed(2) + ' m' : 'N/A';
 
             const { closestPoint, minDistance } = findNearestSpot(currentLat, currentLon, points);
             const nearestSiteText = document.querySelector("#nearest-site span");
