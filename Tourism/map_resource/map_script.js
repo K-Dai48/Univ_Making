@@ -136,6 +136,7 @@ function setting() {
             document.getElementById('current-lon').innerText = currentLon.toFixed(6);
 
             const { closestPoint, minDistance } = findNearestSpot(currentLat, currentLon, points);
+            const nearestSiteText = document.querySelector("#nearest-site span");
             nearestSiteText.innerHTML = `現在地から最も近いおじろの観光サイトは 
               <span class="emphasize-text">${closestPoint.name}（距離: ${minDistance.toFixed(2)} km）`;
         } catch (error) {
