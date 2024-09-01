@@ -71,7 +71,7 @@ function setting() {
   }
 
   //ポリゴン追加の関数
-  fetch('../gis/Ojiro.geojson')
+  fetch('Tourism/gis/Ojiro.geojson')
   .then(response => response.json())
   .then(data => {
       L.geoJson(data, {
