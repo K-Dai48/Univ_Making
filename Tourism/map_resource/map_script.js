@@ -73,7 +73,7 @@ function setting() {
   // マップオブジェクトを取得して初期化
   var map = base();
 
-  fetch('../gis/Ojiro.geojson')
+  fetch('Tourism/gis/Ojiro.geojson')
     .then(response => response.json())
     .then(data => {
         L.geoJson(data, {
