@@ -20,7 +20,9 @@ function setting() {
       //マップオブジェクトを作成
       var map = L.map('mapset', {zoomControl: false });
       osm.addTo(map); //オープンストリートマップをメインに設定
-      map.setView([35.4297, 134.5185], 11); // 初期位置を小代村に設定
+      map.setView([35.4297, 134.5185],
+
+11); // 初期位置を小代村に設定
       
       //ベースマップをまとめた関数
       var basemaps = {
@@ -31,7 +33,7 @@ function setting() {
 
       // 標高タイルレイヤーを追加
       var elevationLayer = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/relief/{z}/{x}/{y}.png', {
-        opacity: 0.6, // 半透明
+        opacity: 0.7, // 半透明
         attribution: '標高タイル: © <a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>'
       });
 
@@ -119,7 +121,9 @@ function setting() {
 
   function addpoint(map, points) {
     points.forEach(point => {
-      const marker = L.marker([point.lat, point.lon], {
+      const marker = L.marker([point.lat, point.lon],
+
+{
           icon: iconTypes[point.type] || iconTypes['sight']
       }).addTo(map); //マーカーを追加
 

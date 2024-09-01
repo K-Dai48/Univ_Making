@@ -100,13 +100,19 @@ function throttle(fn, time, context) {
 	return wrapperFn;
 }
 
-// @function wrapNum(num: Number, range: Number[], includeMax?: Boolean): Number
+// @function wrapNum(num: Number, range: Number[],
+
+includeMax?: Boolean): Number
 // Returns the number `num` modulo `range` in such a way so it lies within
 // `range[0]` and `range[1]`. The returned value will be always smaller than
 // `range[1]` unless `includeMax` is set to `true`.
 function wrapNum(x, range, includeMax) {
 	var max = range[1],
+
+
 	    min = range[0],
+
+
 	    d = max - min;
 	return x === max && includeMax ? x : ((x - min) % d + d) % d + min;
 }
@@ -446,7 +452,9 @@ var Events = {
 			for (var type in types) {
 				// we don't process space-separated events here for performance;
 				// it's a hot path since Layer uses the on(obj) syntax
-				this._on(type, types[type], fn);
+				this._on(type, types[type],
+
+fn);
 			}
 
 		} else {
@@ -454,7 +462,9 @@ var Events = {
 			types = splitWords(types);
 
 			for (var i = 0, len = types.length; i < len; i++) {
-				this._on(types[i], fn, context);
+				this._on(types[i],
+
+fn, context);
 			}
 		}
 
@@ -480,7 +490,9 @@ var Events = {
 
 		} else if (typeof types === 'object') {
 			for (var type in types) {
-				this._off(type, types[type], fn);
+				this._off(type, types[type],
+
+fn);
 			}
 
 		} else {
@@ -491,7 +503,9 @@ var Events = {
 				if (removeAll) {
 					this._off(types[i]);
 				} else {
-					this._off(types[i], fn, context);
+					this._off(types[i],
+
+fn, context);
 				}
 			}
 		}
@@ -679,7 +693,9 @@ var Events = {
 			for (var type in types) {
 				// we don't process space-separated events here for performance;
 				// it's a hot path since Layer uses the on(obj) syntax
-				this._on(type, types[type], fn, true);
+				this._on(type, types[type],
+
+fn, true);
 			}
 
 		} else {
@@ -687,7 +703,9 @@ var Events = {
 			types = splitWords(types);
 
 			for (var i = 0, len = types.length; i < len; i++) {
-				this._on(types[i], fn, context, true);
+				this._on(types[i],
+
+fn, context, true);
 			}
 		}
 
@@ -958,7 +976,9 @@ function toPoint(x, y, round) {
 		return x;
 	}
 	if (isArray(x)) {
-		return new Point(x[0], x[1]);
+		return new Point(x[0],
+
+x[1]);
 	}
 	if (x === undefined || x === null) {
 		return x;
@@ -986,7 +1006,9 @@ function toPoint(x, y, round) {
  * All Leaflet methods that accept `Bounds` objects also accept them in a simple Array form (unless noted otherwise), so the bounds example above can be passed like this:
  *
  * ```js
- * otherBounds.intersects([[10, 10], [40, 60]]);
+ * otherBounds.intersects([[10, 10],
+
+[40, 60]]);
  * ```
  *
  * Note that `Bounds` does not inherit from Leaflet's `Class` object,
@@ -1206,6 +1228,8 @@ function toBounds(a, b) {
  * ```js
  * map.fitBounds([
  * 	[40.712, -74.227],
+
+
  * 	[40.774, -74.125]
  * ]);
  * ```
@@ -1525,6 +1549,8 @@ LatLng.prototype = {
 
 		return toLatLngBounds(
 		        [this.lat - latAccuracy, this.lng - lngAccuracy],
+
+
 		        [this.lat + latAccuracy, this.lng + lngAccuracy]);
 	},
 
@@ -1552,10 +1578,16 @@ function toLatLng(a, b, c) {
 	}
 	if (isArray(a) && typeof a[0] !== 'object') {
 		if (a.length === 3) {
-			return new LatLng(a[0], a[1], a[2]);
+			return new LatLng(a[0],
+
+a[1],
+
+a[2]);
 		}
 		if (a.length === 2) {
-			return new LatLng(a[0], a[1]);
+			return new LatLng(a[0],
+
+a[1]);
 		}
 		return null;
 	}
@@ -1665,7 +1697,11 @@ var CRS = {
 	// Like `wrapLng`, but for the latitude (vertical) axis.
 
 	// wrapLng: [min, max],
+
+
 	// wrapLat: [min, max],
+
+
 
 	// @property infinite: Boolean
 	// If true, the coordinate space will be unbounded (infinite in both axes)
@@ -1717,6 +1753,8 @@ var CRS = {
 
 var Earth = extend({}, CRS, {
 	wrapLng: [-180, 180],
+
+
 
 	// Mean Earth Radius, as recommended for use by
 	// the International Union of Geodesy and Geophysics,
@@ -1773,7 +1811,9 @@ var SphericalMercator = {
 
 	bounds: (function () {
 		var d = earthRadius * Math.PI;
-		return new Bounds([-d, -d], [d, d]);
+		return new Bounds([-d, -d],
+
+[d, d]);
 	})()
 };
 
@@ -1888,7 +1928,9 @@ function svgCreate(name) {
 	return document.createElementNS('http://www.w3.org/2000/svg', name);
 }
 
-// @function pointsToPath(rings: Point[], closed: Boolean): String
+// @function pointsToPath(rings: Point[],
+
+closed: Boolean): String
 // Generates a SVG path string for multiple rings, with each ring turning
 // into "M..L..L.." instructions
 function pointsToPath(rings, closed) {
@@ -1949,7 +1991,9 @@ var android = userAgentContains('android');
 var android23 = userAgentContains('android 2') || userAgentContains('android 3');
 
 /* See https://stackoverflow.com/a/17961266 for details on detecting stock Android */
-var webkitVer = parseInt(/WebKit\/([0-9]+)|$/.exec(navigator.userAgent)[1], 10); // also matches AppleWebKit
+var webkitVer = parseInt(/WebKit\/([0-9]+)|$/.exec(navigator.userAgent)[1],
+
+10); // also matches AppleWebKit
 // @property androidStock: Boolean; **Deprecated.** `true` for the Android stock browser (i.e. not Chrome)
 var androidStock = android && userAgentContains('Google') && webkitVer < 537 && !('AudioNode' in window);
 
@@ -2164,7 +2208,9 @@ function addPointerListener(obj, type, handler) {
 		return falseFn;
 	}
 	handler = handle[type].bind(this, handler);
-	obj.addEventListener(pEvent[type], handler, false);
+	obj.addEventListener(pEvent[type],
+
+handler, false);
 	return handler;
 }
 
@@ -2173,7 +2219,9 @@ function removePointerListener(obj, type, handler) {
 		console.warn('wrong event specified:', type);
 		return;
 	}
-	obj.removeEventListener(pEvent[type], handler, false);
+	obj.removeEventListener(pEvent[type],
+
+handler, false);
 }
 
 function _globalPointerDown(e) {
@@ -2710,13 +2758,17 @@ function on(obj, types, fn, context) {
 
 	if (types && typeof types === 'object') {
 		for (var type in types) {
-			addOne(obj, type, types[type], fn);
+			addOne(obj, type, types[type],
+
+fn);
 		}
 	} else {
 		types = splitWords(types);
 
 		for (var i = 0, len = types.length; i < len; i++) {
-			addOne(obj, types[i], fn, context);
+			addOne(obj, types[i],
+
+fn, context);
 		}
 	}
 
@@ -2749,7 +2801,9 @@ function off(obj, types, fn, context) {
 
 	} else if (types && typeof types === 'object') {
 		for (var type in types) {
-			removeOne(obj, type, types[type], fn);
+			removeOne(obj, type, types[type],
+
+fn);
 		}
 
 	} else {
@@ -2761,7 +2815,9 @@ function off(obj, types, fn, context) {
 			});
 		} else {
 			for (var i = 0, len = types.length; i < len; i++) {
-				removeOne(obj, types[i], fn, context);
+				removeOne(obj, types[i],
+
+fn, context);
 			}
 		}
 	}
@@ -2814,7 +2870,9 @@ function addOne(obj, type, fn, context) {
 					originalHandler(e);
 				}
 			};
-			obj.addEventListener(mouseSubst[type], handler, false);
+			obj.addEventListener(mouseSubst[type],
+
+handler, false);
 
 		} else {
 			obj.addEventListener(type, originalHandler, false);
@@ -3130,6 +3188,8 @@ var PosAnimation = Evented.extend({
  * // initialize the map on the "map" div with a given center and zoom
  * var map = L.map('map', {
  * 	center: [51.505, -0.09],
+
+
  * 	zoom: 13
  * });
  * ```
@@ -3168,6 +3228,8 @@ var Map = Evented.extend({
 		// @option layers: Layer[] = []
 		// Array of layers that will be added to the map initially
 		layers: [],
+
+
 
 		// @option maxBounds: LatLngBounds = null
 		// When this option is set, the map restricts the view to the given
@@ -3406,7 +3468,11 @@ var Map = Evented.extend({
 	// Sets a map view that mostly contains the whole world with the maximum
 	// zoom level possible.
 	fitWorld: function (options) {
-		return this.fitBounds([[-90, -180], [90, 180]], options);
+		return this.fitBounds([[-90, -180],
+
+[90, 180]],
+
+options);
 	},
 
 	// @method panTo(latlng: LatLng, options?: Pan options): this
@@ -4459,6 +4525,8 @@ var Map = Evented.extend({
 
 	_findEventTargets: function (e, type) {
 		var targets = [],
+
+
 		    target,
 		    isHover = type === 'mouseout' || type === 'mouseover',
 		    src = e.target || e.srcElement,
@@ -4509,6 +4577,8 @@ var Map = Evented.extend({
 	},
 
 	_mouseEvents: ['click', 'dblclick', 'mouseover', 'mouseout', 'contextmenu'],
+
+
 
 	_fireDOMEvent: function (e, type, canvasTargets) {
 
@@ -5108,11 +5178,15 @@ var Layers = Control.extend({
 		this._preventClick = false;
 
 		for (var i in baseLayers) {
-			this._addLayer(baseLayers[i], i);
+			this._addLayer(baseLayers[i],
+
+i);
 		}
 
 		for (i in overlays) {
-			this._addLayer(overlays[i], i, true);
+			this._addLayer(overlays[i],
+
+i, true);
 		}
 	},
 
@@ -5389,6 +5463,8 @@ var Layers = Control.extend({
 		var inputs = this._layerControlInputs,
 		    input, layer;
 		var addedLayers = [],
+
+
 		    removedLayers = [];
 
 		this._handlingClick = true;
@@ -6162,7 +6238,9 @@ var Draggable = Evented.extend({
  * Various utility functions for polygon geometries.
  */
 
-/* @function clipPolygon(points: Point[], bounds: Bounds, round?: Boolean): Point[]
+/* @function clipPolygon(points: Point[],
+
+bounds: Bounds, round?: Boolean): Point[]
  * Clips the polygon geometry defined by the given `points` by the given bounds (using the [Sutherland-Hodgman algorithm](https://en.wikipedia.org/wiki/Sutherland%E2%80%93Hodgman_algorithm)).
  * Used by Leaflet to only show polygon points that are on the screen or near, increasing
  * performance. Note that polygon points needs different algorithm for clipping
@@ -6171,12 +6249,16 @@ var Draggable = Evented.extend({
 function clipPolygon(points, bounds, round) {
 	var clippedPoints,
 	    edges = [1, 4, 2, 8],
+
+
 	    i, j, k,
 	    a, b,
 	    len, edge, p;
 
 	for (i = 0, len = points.length; i < len; i++) {
-		points[i]._code = _getBitCode(points[i], bounds);
+		points[i]._code = _getBitCode(points[i],
+
+bounds);
 	}
 
 	// for each edge (left, bottom, right, top)
@@ -6211,7 +6293,9 @@ function clipPolygon(points, bounds, round) {
 	return points;
 }
 
-/* @function polygonCenter(latlngs: LatLng[], crs: CRS): LatLng
+/* @function polygonCenter(latlngs: LatLng[],
+
+crs: CRS): LatLng
  * Returns the center ([centroid](http://en.wikipedia.org/wiki/Centroid)) of the passed LatLngs (first ring) from a polygon.
  */
 function polygonCenter(latlngs, crs) {
@@ -6299,7 +6383,9 @@ var PolyUtil = {
 // Simplify polyline with vertex reduction and Douglas-Peucker simplification.
 // Improves rendering performance dramatically by lessening the number of points to draw.
 
-// @function simplify(points: Point[], tolerance: Number): Point[]
+// @function simplify(points: Point[],
+
+tolerance: Number): Point[]
 // Dramatically reduces the number of points in a polyline while retaining
 // its shape and returns a new array of simplified points, using the
 // [Ramer-Douglas-Peucker algorithm](https://en.wikipedia.org/wiki/Ramer-Douglas-Peucker_algorithm).
@@ -6364,7 +6450,13 @@ function _simplifyDPStep(points, markers, sqTolerance, first, last) {
 	index, i, sqDist;
 
 	for (i = first + 1; i <= last - 1; i++) {
-		sqDist = _sqClosestPointOnSegment(points[i], points[first], points[last], true);
+		sqDist = _sqClosestPointOnSegment(points[i],
+
+points[first],
+
+points[last],
+
+true);
 
 		if (sqDist > maxSqDist) {
 			index = i;
@@ -6385,7 +6477,9 @@ function _reducePoints(points, sqTolerance) {
 	var reducedPoints = [points[0]];
 
 	for (var i = 1, prev = 0, len = points.length; i < len; i++) {
-		if (_sqDist(points[i], points[prev]) > sqTolerance) {
+		if (_sqDist(points[i],
+
+points[prev]) > sqTolerance) {
 			reducedPoints.push(points[i]);
 			prev = i;
 		}
@@ -6529,7 +6623,9 @@ function _flat(latlngs) {
 	return isFlat(latlngs);
 }
 
-/* @function polylineCenter(latlngs: LatLng[], crs: CRS): LatLng
+/* @function polylineCenter(latlngs: LatLng[],
+
+crs: CRS): LatLng
  * Returns the center ([centroid](http://en.wikipedia.org/wiki/Centroid)) of the passed LatLngs (first ring) from a polyline.
  */
 function polylineCenter(latlngs, crs) {
@@ -6626,7 +6722,9 @@ var LonLat = {
 		return new LatLng(point.y, point.x);
 	},
 
-	bounds: new Bounds([-180, -90], [180, 90])
+	bounds: new Bounds([-180, -90],
+
+[180, 90])
 };
 
 /*
@@ -6640,7 +6738,9 @@ var Mercator = {
 	R: 6378137,
 	R_MINOR: 6356752.314245179,
 
-	bounds: new Bounds([-20037508.34279, -15496570.73972], [20037508.34279, 18764656.23138]),
+	bounds: new Bounds([-20037508.34279, -15496570.73972],
+
+[20037508.34279, 18764656.23138]),
 
 	project: function (latlng) {
 		var d = Math.PI / 180,
@@ -7201,7 +7301,9 @@ var LayerGroup = Layer.extend({
 });
 
 
-// @factory L.layerGroup(layers?: Layer[], options?: Object)
+// @factory L.layerGroup(layers?: Layer[],
+
+options?: Object)
 // Create a layer group, optionally given an initial set of layers and an `options` object.
 var layerGroup = function (layers, options) {
 	return new LayerGroup(layers, options);
@@ -7293,7 +7395,9 @@ var FeatureGroup = LayerGroup.extend({
 	}
 });
 
-// @factory L.featureGroup(layers?: Layer[], options?: Object)
+// @factory L.featureGroup(layers?: Layer[],
+
+options?: Object)
 // Create a feature group, optionally given an initial set of layers and an `options` object.
 var featureGroup = function (layers, options) {
 	return new FeatureGroup(layers, options);
@@ -7312,15 +7416,25 @@ var featureGroup = function (layers, options) {
  *     iconUrl: 'my-icon.png',
  *     iconRetinaUrl: 'my-icon@2x.png',
  *     iconSize: [38, 95],
+
+
  *     iconAnchor: [22, 94],
+
+
  *     popupAnchor: [-3, -76],
+
+
  *     shadowUrl: 'my-icon-shadow.png',
  *     shadowRetinaUrl: 'my-icon-shadow@2x.png',
  *     shadowSize: [68, 95],
+
+
  *     shadowAnchor: [22, 94]
  * });
  *
- * L.marker([50.505, 30.57], {icon: myIcon}).addTo(map);
+ * L.marker([50.505, 30.57],
+
+{icon: myIcon}).addTo(map);
  * ```
  *
  * `L.Icon.Default` extends `L.Icon` and is the blue icon Leaflet uses for markers by default.
@@ -7371,7 +7485,11 @@ var Icon = Class.extend({
 
 	options: {
 		popupAnchor: [0, 0],
+
+
 		tooltipAnchor: [0, 0],
+
+
 
 		// @option crossOrigin: Boolean|String = false
 		// Whether the crossOrigin attribute will be added to the tiles.
@@ -7483,9 +7601,17 @@ var IconDefault = Icon.extend({
 		iconRetinaUrl: 'marker-icon-2x.png',
 		shadowUrl:     'marker-shadow.png',
 		iconSize:    [25, 41],
+
+
 		iconAnchor:  [12, 41],
+
+
 		popupAnchor: [1, -34],
+
+
 		tooltipAnchor: [16, -28],
+
+
 		shadowSize:  [41, 41]
 	},
 
@@ -7768,6 +7894,8 @@ var Marker = Layer.extend({
 		// Distance (in pixels to the left/right and to the top/bottom) of the
 		// map edge to start panning the map.
 		autoPanPadding: [50, 50],
+
+
 
 		// @option autoPanSpeed: Number = 10
 		// Number of pixels the map should pan by.
@@ -8352,7 +8480,9 @@ function circleMarker(latlng, options) {
  * @example
  *
  * ```js
- * L.circle([50.5, 30.5], {radius: 200}).addTo(map);
+ * L.circle([50.5, 30.5],
+
+{radius: 200}).addTo(map);
  * ```
  */
 
@@ -8459,7 +8589,11 @@ function circle(latlng, options, legacyOptions) {
  * // create a red polyline from an array of LatLng points
  * var latlngs = [
  * 	[45.51, -122.68],
+
+
  * 	[37.77, -122.43],
+
+
  * 	[34.04, -118.2]
  * ];
  *
@@ -8475,10 +8609,20 @@ function circle(latlng, options, legacyOptions) {
  * // create a red polyline from an array of arrays of LatLng points
  * var latlngs = [
  * 	[[45.51, -122.68],
+
+
  * 	 [37.77, -122.43],
+
+
  * 	 [34.04, -118.2]],
+
+
  * 	[[40.78, -73.91],
+
+
  * 	 [41.83, -87.62],
+
+
  * 	 [32.76, -96.72]]
  * ];
  * ```
@@ -8593,6 +8737,8 @@ var Polyline = Path.extend({
 	// recursively convert latlngs input into actual LatLng instances; calculate bounds along the way
 	_convertLatLngs: function (latlngs) {
 		var result = [],
+
+
 		    flat = isFlat(latlngs);
 
 		for (var i = 0, len = latlngs.length; i < len; i++) {
@@ -8647,7 +8793,9 @@ var Polyline = Path.extend({
 			result.push(ring);
 		} else {
 			for (i = 0; i < len; i++) {
-				this._projectLatlngs(latlngs[i], result, projectedBounds);
+				this._projectLatlngs(latlngs[i],
+
+result, projectedBounds);
 			}
 		}
 	},
@@ -8673,7 +8821,11 @@ var Polyline = Path.extend({
 			points = this._rings[i];
 
 			for (j = 0, len2 = points.length; j < len2 - 1; j++) {
-				segment = clipSegment(points[j], points[j + 1], bounds, j, true);
+				segment = clipSegment(points[j],
+
+points[j + 1],
+
+bounds, j, true);
 
 				if (!segment) { continue; }
 
@@ -8695,7 +8847,9 @@ var Polyline = Path.extend({
 		    tolerance = this.options.smoothFactor;
 
 		for (var i = 0, len = parts.length; i < len; i++) {
-			parts[i] = simplify(parts[i], tolerance);
+			parts[i] = simplify(parts[i],
+
+tolerance);
 		}
 	},
 
@@ -8725,7 +8879,9 @@ var Polyline = Path.extend({
 			for (j = 0, len2 = part.length, k = len2 - 1; j < len2; k = j++) {
 				if (!closed && (j === 0)) { continue; }
 
-				if (pointToSegmentDistance(p, part[k], part[j]) <= w) {
+				if (pointToSegmentDistance(p, part[k],
+
+part[j]) <= w) {
 					return true;
 				}
 			}
@@ -8734,7 +8890,9 @@ var Polyline = Path.extend({
 	}
 });
 
-// @factory L.polyline(latlngs: LatLng[], options?: Polyline options)
+// @factory L.polyline(latlngs: LatLng[],
+
+options?: Polyline options)
 // Instantiates a polyline object given an array of geographical points and
 // optionally an options object. You can create a `Polyline` object with
 // multiple separate lines (`MultiPolyline`) by passing an array of arrays
@@ -8760,7 +8918,13 @@ Polyline._flat = _flat;
  *
  * ```js
  * // create a red polygon from an array of LatLng points
- * var latlngs = [[37, -109.05],[41, -109.03],[41, -102.05],[37, -102.04]];
+ * var latlngs = [[37, -109.05],
+
+[41, -109.03],
+
+[41, -102.05],
+
+[37, -102.04]];
  *
  * var polygon = L.polygon(latlngs, {color: 'red'}).addTo(map);
  *
@@ -8772,8 +8936,22 @@ Polyline._flat = _flat;
  *
  * ```js
  * var latlngs = [
- *   [[37, -109.05],[41, -109.03],[41, -102.05],[37, -102.04]], // outer ring
- *   [[37.29, -108.58],[40.71, -108.58],[40.71, -102.50],[37.29, -102.50]] // hole
+ *   [[37, -109.05],
+
+[41, -109.03],
+
+[41, -102.05],
+
+[37, -102.04]],
+
+// outer ring
+ *   [[37.29, -108.58],
+
+[40.71, -108.58],
+
+[40.71, -102.50],
+
+[37.29, -102.50]] // hole
  * ];
  * ```
  *
@@ -8782,11 +8960,33 @@ Polyline._flat = _flat;
  * ```js
  * var latlngs = [
  *   [ // first polygon
- *     [[37, -109.05],[41, -109.03],[41, -102.05],[37, -102.04]], // outer ring
- *     [[37.29, -108.58],[40.71, -108.58],[40.71, -102.50],[37.29, -102.50]] // hole
+ *     [[37, -109.05],
+
+[41, -109.03],
+
+[41, -102.05],
+
+[37, -102.04]],
+
+// outer ring
+ *     [[37.29, -108.58],
+
+[40.71, -108.58],
+
+[40.71, -102.50],
+
+[37.29, -102.50]] // hole
  *   ],
+
+
  *   [ // second polygon
- *     [[41, -111.03],[45, -111.04],[45, -104.05],[41, -104.05]]
+ *     [[41, -111.03],
+
+[45, -111.04],
+
+[45, -104.05],
+
+[41, -104.05]]
  *   ]
  * ];
  * ```
@@ -8855,7 +9055,9 @@ var Polygon = Polyline.extend({
 		}
 
 		for (var i = 0, len = this._rings.length, clipped; i < len; i++) {
-			clipped = clipPolygon(this._rings[i], bounds, true);
+			clipped = clipPolygon(this._rings[i],
+
+bounds, true);
 			if (clipped.length) {
 				this._parts.push(clipped);
 			}
@@ -8894,7 +9096,9 @@ var Polygon = Polyline.extend({
 });
 
 
-// @factory L.polygon(latlngs: LatLng[], options?: Polyline options)
+// @factory L.polygon(latlngs: LatLng[],
+
+options?: Polyline options)
 function polygon(latlngs, options) {
 	return new Polygon(latlngs, options);
 }
@@ -9062,6 +9266,8 @@ function geometryToLayer(geojson, options) {
 	var geometry = geojson.type === 'Feature' ? geojson.geometry : geojson,
 	    coords = geometry ? geometry.coordinates : null,
 	    layers = [],
+
+
 	    pointToLayer = options && options.pointToLayer,
 	    _coordsToLatLng = options && options.coordsToLatLng || coordsToLatLng,
 	    latlng, latlngs, i, len;
@@ -9096,6 +9302,8 @@ function geometryToLayer(geojson, options) {
 		for (i = 0, len = geometry.geometries.length; i < len; i++) {
 			var geoLayer = geometryToLayer({
 				geometry: geometry.geometries[i],
+
+
 				type: 'Feature',
 				properties: geojson.properties
 			}, options);
@@ -9108,7 +9316,9 @@ function geometryToLayer(geojson, options) {
 
 	case 'FeatureCollection':
 		for (i = 0, len = geometry.features.length; i < len; i++) {
-			var featureLayer = geometryToLayer(geometry.features[i], options);
+			var featureLayer = geometryToLayer(geometry.features[i],
+
+options);
 
 			if (featureLayer) {
 				layers.push(featureLayer);
@@ -9131,7 +9341,11 @@ function _pointToLayer(pointToLayerFn, geojson, latlng, options) {
 // Creates a `LatLng` object from an array of 2 numbers (longitude, latitude)
 // or 3 numbers (longitude, latitude, altitude) used in GeoJSON for points.
 function coordsToLatLng(coords) {
-	return new LatLng(coords[1], coords[0], coords[2]);
+	return new LatLng(coords[1],
+
+coords[0],
+
+coords[2]);
 }
 
 // @function coordsToLatLngs(coords: Array, levelsDeep?: Number, coordsToLatLng?: Function): Array
@@ -9143,7 +9357,9 @@ function coordsToLatLngs(coords, levelsDeep, _coordsToLatLng) {
 
 	for (var i = 0, len = coords.length, latlng; i < len; i++) {
 		latlng = levelsDeep ?
-			coordsToLatLngs(coords[i], levelsDeep - 1, _coordsToLatLng) :
+			coordsToLatLngs(coords[i],
+
+levelsDeep - 1, _coordsToLatLng) :
 			(_coordsToLatLng || coordsToLatLng)(coords[i]);
 
 		latlngs.push(latlng);
@@ -9172,8 +9388,12 @@ function latLngsToCoords(latlngs, levelsDeep, closed, precision) {
 	for (var i = 0, len = latlngs.length; i < len; i++) {
 		// Check for flat arrays required to ensure unbalanced arrays are correctly converted in recursion
 		coords.push(levelsDeep ?
-			latLngsToCoords(latlngs[i], isFlat(latlngs[i]) ? 0 : levelsDeep - 1, closed, precision) :
-			latLngToCoords(latlngs[i], precision));
+			latLngsToCoords(latlngs[i],
+
+isFlat(latlngs[i]) ? 0 : levelsDeep - 1, closed, precision) :
+			latLngToCoords(latlngs[i],
+
+precision));
 	}
 
 	if (!levelsDeep && closed && coords.length > 0) {
@@ -9350,7 +9570,9 @@ var geoJson = geoJSON;
  *
  * ```js
  * var imageUrl = 'https://maps.lib.utexas.edu/maps/historical/newark_nj_1922.jpg',
- * 	imageBounds = [[40.712216, -74.22655], [40.773941, -74.12544]];
+ * 	imageBounds = [[40.712216, -74.22655],
+
+[40.773941, -74.12544]];
  * L.imageOverlay(imageUrl, imageBounds).addTo(map);
  * ```
  */
@@ -9618,7 +9840,9 @@ var imageOverlay = function (url, bounds, options) {
  *
  * ```js
  * var videoUrl = 'https://www.mapbox.com/bites/00188/patricia_nasa.webm',
- * 	videoBounds = [[ 32, -130], [ 13, -100]];
+ * 	videoBounds = [[ 32, -130],
+
+[ 13, -100]];
  * L.videoOverlay(videoUrl, videoBounds ).addTo(map);
  * ```
  */
@@ -9723,7 +9947,9 @@ function videoOverlay(video, bounds, options) {
  * svgElement.setAttribute('xmlns', "http://www.w3.org/2000/svg");
  * svgElement.setAttribute('viewBox', "0 0 200 200");
  * svgElement.innerHTML = '<rect width="200" height="200"/><rect x="75" y="23" width="50" height="50" style="fill:red"/><rect x="75" y="123" width="50" height="50" style="fill:#0013ff"/>';
- * var svgElementBounds = [ [ 32, -130 ], [ 13, -100 ] ];
+ * var svgElementBounds = [ [ 32, -130 ],
+
+[ 13, -100 ] ];
  * L.svgOverlay(svgElement, svgElementBounds).addTo(map);
  * ```
  */
@@ -9774,6 +10000,8 @@ var DivOverlay = Layer.extend({
 		// @option offset: Point = Point(0, 0)
 		// The offset of the overlay position.
 		offset: [0, 0],
+
+
 
 		// @option className: String = ''
 		// A custom CSS class name to assign to the overlay.
@@ -10142,6 +10370,8 @@ var Popup = DivOverlay.extend({
 		// The offset of the popup position.
 		offset: [0, 7],
 
+
+
 		// @option maxWidth: Number = 300
 		// Max width of the popup, in pixels.
 		maxWidth: 300,
@@ -10175,6 +10405,8 @@ var Popup = DivOverlay.extend({
 		// @option autoPanPadding: Point = Point(5, 5)
 		// Equivalent of setting both top left and bottom right autopan padding to the same value.
 		autoPanPadding: [5, 5],
+
+
 
 		// @option keepInView: Boolean = false
 		// Set it to `true` if you want to prevent users from panning the popup
@@ -10624,7 +10856,9 @@ Layer.include({
  *
  * Note about tooltip offset. Leaflet takes two options in consideration
  * for computing tooltip offsetting:
- * - the `offset` Tooltip option: it defaults to [0, 0], and it's specific to one tooltip.
+ * - the `offset` Tooltip option: it defaults to [0, 0],
+
+and it's specific to one tooltip.
  *   Add a positive x offset to move the tooltip to the right, and a positive y offset to
  *   move it to the bottom. Negatives will move to the left and top.
  * - the `tooltipAnchor` Icon option: this will only be considered for Marker. You
@@ -10645,6 +10879,8 @@ var Tooltip = DivOverlay.extend({
 		// @option offset: Point = Point(0, 0)
 		// Optional offset of the tooltip position.
 		offset: [0, 0],
+
+
 
 		// @option direction: String = 'auto'
 		// Direction where to open the tooltip. Possible values are: `right`, `left`,
@@ -11042,7 +11278,9 @@ Layer.include({
  * var myIcon = L.divIcon({className: 'my-div-icon'});
  * // you can set .my-div-icon styles in CSS
  *
- * L.marker([50.505, 30.57], {icon: myIcon}).addTo(map);
+ * L.marker([50.505, 30.57],
+
+{icon: myIcon}).addTo(map);
  * ```
  *
  * By default, it has a 'leaflet-div-icon' CSS class and is styled as a little white square with a shadow.
@@ -11052,7 +11290,9 @@ var DivIcon = Icon.extend({
 	options: {
 		// @section
 		// @aka DivIcon options
-		iconSize: [12, 12], // also can be set through CSS
+		iconSize: [12, 12],
+
+// also can be set through CSS
 
 		// iconAnchor: (Point),
 		// popupAnchor: (Point),
@@ -11478,6 +11718,8 @@ var GridLayer = Layer.extend({
 		}
 
 		var level = this._levels[zoom],
+
+
 		    map = this._map;
 
 		if (!level) {
@@ -11684,7 +11926,9 @@ var GridLayer = Layer.extend({
 
 	_setZoomTransforms: function (center, zoom) {
 		for (var i in this._levels) {
-			this._setZoomTransform(this._levels[i], center, zoom);
+			this._setZoomTransform(this._levels[i],
+
+center, zoom);
 		}
 	},
 
@@ -11712,12 +11956,24 @@ var GridLayer = Layer.extend({
 		}
 
 		this._wrapX = crs.wrapLng && !this.options.noWrap && [
-			Math.floor(map.project([0, crs.wrapLng[0]], tileZoom).x / tileSize.x),
-			Math.ceil(map.project([0, crs.wrapLng[1]], tileZoom).x / tileSize.y)
+			Math.floor(map.project([0, crs.wrapLng[0]],
+
+tileZoom).x / tileSize.x),
+			Math.ceil(map.project([0, crs.wrapLng[1]],
+
+tileZoom).x / tileSize.y)
 		];
 		this._wrapY = crs.wrapLat && !this.options.noWrap && [
-			Math.floor(map.project([crs.wrapLat[0], 0], tileZoom).y / tileSize.x),
-			Math.ceil(map.project([crs.wrapLat[1], 0], tileZoom).y / tileSize.y)
+			Math.floor(map.project([crs.wrapLat[0],
+
+0],
+
+tileZoom).y / tileSize.x),
+			Math.ceil(map.project([crs.wrapLat[1],
+
+0],
+
+tileZoom).y / tileSize.y)
 		];
 	},
 
@@ -11750,6 +12006,8 @@ var GridLayer = Layer.extend({
 		    tileRange = this._pxBoundsToTileRange(pixelBounds),
 		    tileCenter = tileRange.getCenter(),
 		    queue = [],
+
+
 		    margin = this.options.keepBuffer,
 		    noPruneRange = new Bounds(tileRange.getBottomLeft().subtract([margin, -margin]),
 		                              tileRange.getTopRight().add([margin, -margin]));
@@ -11806,7 +12064,9 @@ var GridLayer = Layer.extend({
 			var fragment = document.createDocumentFragment();
 
 			for (i = 0; i < queue.length; i++) {
-				this._addTile(queue[i], fragment);
+				this._addTile(queue[i],
+
+fragment);
 			}
 
 			this._level.el.appendChild(fragment);
@@ -11847,7 +12107,9 @@ var GridLayer = Layer.extend({
 	// converts tile coordinates to its geographical bounds
 	_tileCoordsToBounds: function (coords) {
 		var bp = this._tileCoordsToNwSe(coords),
-		    bounds = new LatLngBounds(bp[0], bp[1]);
+		    bounds = new LatLngBounds(bp[0],
+
+bp[1]);
 
 		if (!this.options.noWrap) {
 			bounds = this._map.wrapLatLngBounds(bounds);
@@ -11862,7 +12124,9 @@ var GridLayer = Layer.extend({
 	// converts tile cache key to coordinates
 	_keyToTileCoords: function (key) {
 		var k = key.split(':'),
-		    coords = new Point(+k[0], +k[1]);
+		    coords = new Point(+k[0],
+
++k[1]);
 		coords.z = +k[2];
 		return coords;
 	},
@@ -12753,6 +13017,8 @@ var Canvas = Renderer.extend({
 		if (typeof layer.options.dashArray === 'string') {
 			var parts = layer.options.dashArray.split(/[, ]+/),
 			    dashArray = [],
+
+
 			    dashValue,
 			    i;
 			for (i = 0; i < parts.length; i++) {
@@ -12937,7 +13203,9 @@ var Canvas = Renderer.extend({
 		if (layer) {
 			// if we're leaving the layer, fire mouseout
 			removeClass(this._container, 'leaflet-interactive');
-			this._fireEvent([layer], e, 'mouseout');
+			this._fireEvent([layer],
+
+e, 'mouseout');
 			this._hoveredLayer = null;
 			this._mouseHoverThrottled = false;
 		}
@@ -12962,7 +13230,9 @@ var Canvas = Renderer.extend({
 
 			if (candidateHoveredLayer) {
 				addClass(this._container, 'leaflet-interactive'); // change cursor
-				this._fireEvent([candidateHoveredLayer], e, 'mouseover');
+				this._fireEvent([candidateHoveredLayer],
+
+e, 'mouseover');
 				this._hoveredLayer = candidateHoveredLayer;
 			}
 		}
@@ -13445,7 +13715,9 @@ Map.include({
  *
  * ```js
  * // define rectangle geographical bounds
- * var bounds = [[54.559322, -5.767822], [56.1210604, -3.021240]];
+ * var bounds = [[54.559322, -5.767822],
+
+[56.1210604, -3.021240]];
  *
  * // create an orange rectangle
  * L.rectangle(bounds, {color: "#ff7800", weight: 1}).addTo(map);
@@ -13943,10 +14215,20 @@ var Keyboard = Handler.extend({
 
 	keyCodes: {
 		left:    [37],
+
+
 		right:   [39],
+
+
 		down:    [40],
+
+
 		up:      [38],
+
+
 		zoomIn:  [187, 107, 61, 171],
+
+
 		zoomOut: [189, 109, 54, 173]
 	},
 
