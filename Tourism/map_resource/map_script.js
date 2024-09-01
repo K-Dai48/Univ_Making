@@ -37,36 +37,32 @@ function setting() {
         attribution: '標高タイル: © <a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>'
       });
 
-      var geotiffUrl = 'Tourism/gis/Hyogo-snow-dp.tif';
+      var geotiffUrl = '../gis/Hyogo-snow-dp.tif';
 
-      var snowDepthLayer;
+      function loadGeoTIFF() {
         fetch(geotiffUrl)
             .then(response => response.arrayBuffer())
-            .then(arrayBuffer => {
-                return GeoTIFF.fromArrayBuffer(arrayBuffer);
-            })
+            .then(arrayBuffer => GeoTIFF.fromArrayBuffer(arrayBuffer))
             .then(tiff => tiff.getImage())
             .then(image => {
-                // カラーリニアスケールを作成
                 var colorScale = d3.scaleLinear()
-                    .domain([16, 100, 189]) // 範囲を設定
+                    .domain([16, 100, 189]) // 値の範囲を設定
                     .range(['blue', 'green', 'red']); // グラデーションの色を設定
-
+    
                 var options = {
                     band: 0,
                     renderer: (values) => {
-                        // 値を基に色を設定
-                        return colorScale(values[0]);
+                        return colorScale(values[0]); // 値に応じた色を返す
                     }
                 };
-
-                snowDepthLayer = L.leafletGeotiff(image, options);
-                snowDepthLayer.addTo(map); // GeoTIFFレイヤーをマップに追加
+    
+                var snowDepthLayer = L.leafletGeotiff(image, options);
+                snowDepthLayer.addTo(map); // 地図にレイヤーを追加
             })
             .catch(error => {
                 console.error('Error loading GeoTIFF:', error);
             });
-
+    }
 
       // オーバーレイをまとめる
       var overlays = {
@@ -94,6 +90,7 @@ function setting() {
 
   // マップオブジェクトを取得して初期化
   var map = base();
+  loadGeoTIFF(); // GeoTIFFを読み込む
 
   fetch('Tourism/gis/Ojiro.geojson')
     .then(response => response.json())
