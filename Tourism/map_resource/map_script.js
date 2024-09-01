@@ -40,23 +40,33 @@ function setting() {
       var geotiffUrl = '../gis/Hyogo-snow-dp.tiff';
 
       var snowDepthLayer;
-            fetch(geotiffUrl)
-                .then(response => response.arrayBuffer())
-                .then(arrayBuffer => {
-                    var tiff = GeoTIFF.parse(arrayBuffer);
-                    var image = tiff.getImage();
-                    var bounds = [[35.059739587, 133.98779069], [35.688647922, 135.01241663]]; // 適切なバウンディングボックスを指定
-                    var options = {
-                        band: 0,
-                        noDataValue: 999999, // NoData値の指定
-                        colorMap: [[0, 'blue'], [100, 'green'], [200, 'yellow']] // 色マッピングの例
-                    };
-                    snowDepthLayer = L.geotiff(image, options);
-                    snowDepthLayer.addTo(map); // GeoTIFFレイヤーをマップに追加
-                })
-                .catch(error => {
-                    console.error('Error loading GeoTIFF:', error);
-                });
+        fetch(geotiffUrl)
+            .then(response => response.arrayBuffer())
+            .then(arrayBuffer => {
+                return GeoTIFF.fromArrayBuffer(arrayBuffer);
+            })
+            .then(tiff => tiff.getImage())
+            .then(image => {
+                // カラーリニアスケールを作成
+                var colorScale = d3.scaleLinear()
+                    .domain([16, 100, 189]) // 範囲を設定
+                    .range(['blue', 'green', 'red']); // グラデーションの色を設定
+
+                var options = {
+                    band: 0,
+                    renderer: (values) => {
+                        // 値を基に色を設定
+                        return colorScale(values[0]);
+                    }
+                };
+
+                snowDepthLayer = L.leafletGeotiff(image, options);
+                snowDepthLayer.addTo(map); // GeoTIFFレイヤーをマップに追加
+            })
+            .catch(error => {
+                console.error('Error loading GeoTIFF:', error);
+            });
+
 
       // オーバーレイをまとめる
       var overlays = {
