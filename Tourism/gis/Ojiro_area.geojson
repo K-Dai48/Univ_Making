@@ -1,12 +1,5 @@
 var ojiro {
     "type": "FeatureCollection",
-    "name": "Ojiro_area",
-    "crs": {
-        "type": "name",
-        "properties": {
-            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
-            }
-        },
     "features": [
         {
             "type": "Feature",
@@ -18,9 +11,9 @@ var ojiro {
                 "N03_005": null,
                 "N03_006": null,
                 "N03_007": "28583"
-                },
+             },
             "geometry": {
-                "type": "MultiPolygon",
+                "type": "Polygon",
                 "coordinates": [
                     [ 
                         [ 
