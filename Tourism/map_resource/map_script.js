@@ -73,7 +73,7 @@ function setting() {
   //ポリゴン追加の関数
   function addpolygon(map) {
       // 小代区のポリゴンを追加
-      var Ojiro = L.geoJson(ojiro, {
+      var Ojiro = L.geoJson(areaOjiro, {
         color: "#008000", // 外線の色
         weight: 5,
         fill: false,   
