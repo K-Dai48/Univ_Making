@@ -37,37 +37,9 @@ function setting() {
         attribution: '標高タイル: © <a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>'
       });
 
-      var geotiffUrl = '../gis/Hyogo-snow-dp.tif';
-
-      function loadGeoTIFF() {
-        fetch(geotiffUrl)
-            .then(response => response.arrayBuffer())
-            .then(arrayBuffer => GeoTIFF.fromArrayBuffer(arrayBuffer))
-            .then(tiff => tiff.getImage())
-            .then(image => {
-                var colorScale = d3.scaleLinear()
-                    .domain([16, 100, 189]) // 値の範囲を設定
-                    .range(['blue', 'green', 'red']); // グラデーションの色を設定
-    
-                var options = {
-                    band: 0,
-                    renderer: (values) => {
-                        return colorScale(values[0]); // 値に応じた色を返す
-                    }
-                };
-    
-                var snowDepthLayer = L.leafletGeotiff(image, options);
-                snowDepthLayer.addTo(map); // 地図にレイヤーを追加
-            })
-            .catch(error => {
-                console.error('Error loading GeoTIFF:', error);
-            });
-    }
-
       // オーバーレイをまとめる
       var overlays = {
         "標高タイル": elevationLayer,
-        "最深積雪データ": snowDepthLayer
       };
 
       //ベースマップの表示をコントロールする関数
@@ -90,7 +62,6 @@ function setting() {
 
   // マップオブジェクトを取得して初期化
   var map = base();
-  loadGeoTIFF(); // GeoTIFFを読み込む
 
   fetch('Tourism/gis/Ojiro.geojson')
     .then(response => response.json())
