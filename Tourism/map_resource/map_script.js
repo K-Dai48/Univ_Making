@@ -74,11 +74,11 @@ function setting() {
   fetch('../gis/Ojiro.geojson')
   .then(response => response.json())
   .then(data => {
-      L.geoJson(areaOjiro, {
+      L.geoJson(data, {
         color: "#008000", // 外線の色
         weight: 5,
         fill: false,   
-        fillopacity: 0
+        fillOpacity: 0
     }).addTo(map);
   })
   .catch(error => {
