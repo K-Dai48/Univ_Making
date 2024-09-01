@@ -70,23 +70,22 @@ function setting() {
     }, 2000); // 処理が完了するまでの時間（ここでは2秒）
   }
 
-  //ポリゴン追加の関数
-  fetch('../gis/Ojiro.geojson')
-  .then(response => response.json())
-  .then(data => {
-      L.geoJson(data, {
-        color: "#008000", // 外線の色
-        weight: 5,
-        fill: false,   
-        fillOpacity: 0
-    }).addTo(map);
-  })
-  .catch(error => {
-    console.error('Error loading GeoJson data:', error);
-  });
-
   // マップオブジェクトを取得して初期化
   var map = base();
+
+  fetch('../gis/Ojiro.geojson')
+    .then(response => response.json())
+    .then(data => {
+        L.geoJson(data, {
+          color: "#008000", // 外線の色
+          weight: 5,
+          fill: false,   
+          fillOpacity: 0
+      }).addTo(map);
+    })
+    .catch(error => {
+      console.error('Error loading GeoJson data:', error);
+    });
 
   function loadCSVData(url) {
     return fetch(url)
