@@ -71,17 +71,19 @@ function setting() {
   }
 
   //ポリゴン追加の関数
-  function addpolygon(map) {
-      // 小代区のポリゴンを追加
-      var Ojiro = L.geoJson(areaOjiro, {
+  fetch('Tourism/gis/Ojiro.geojson')
+  .then(response => response.json())
+  .then(data => {
+      L.geoJson(areaOjiro, {
         color: "#008000", // 外線の色
         weight: 5,
         fill: false,   
         fillopacity: 0
-    });
-
-    Ojiro.addTo(map);
-  }
+    }).addTo(map);
+  })
+  .catch(error => {
+    console.error('Error loading GeoJson data:', error);
+  });
 
   // マップオブジェクトを取得して初期化
   var map = base();
