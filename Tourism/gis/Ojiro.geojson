@@ -1,4 +1,4 @@
-var areaOjiro = {
+{
     "type": "FeatureCollection",
     "features": [
         {
@@ -968,4 +968,4 @@ var areaOjiro = {
             }
         }
     ]
-};
+}

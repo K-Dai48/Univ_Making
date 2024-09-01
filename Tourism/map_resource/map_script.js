@@ -71,7 +71,7 @@ function setting() {
   }
 
   //ポリゴン追加の関数
-  fetch('Tourism/gis/Ojiro.geojson')
+  fetch('../gis/Ojiro.geojson')
   .then(response => response.json())
   .then(data => {
       L.geoJson(areaOjiro, {
@@ -87,7 +87,6 @@ function setting() {
 
   // マップオブジェクトを取得して初期化
   var map = base();
-  addpolygon(map);
 
   function loadCSVData(url) {
     return fetch(url)
