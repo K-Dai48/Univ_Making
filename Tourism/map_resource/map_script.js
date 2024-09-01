@@ -37,14 +37,26 @@ function setting() {
         attribution: '標高タイル: © <a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>'
       });
 
-      // 最深積雪メッシュデータレイヤーを追加
-      var snowDepthLayer = L.tileLayer.wms('https://www.gsi.go.jp/cgi-bin/wms.cgi?', {
-        layers: 'NSD_snowdepth',
-        format: 'image/png',
-        transparent: true,
-        opacity: 0.6, // 半透明
-        attribution: '最深積雪データ: © <a href="https://www.gsi.go.jp/bousaichiri/bousaichiri41042.html">国土地理院</a>'
-      });
+      var geotiffUrl = '/Users/kaokadaisuke/public_html/link/Univ_Making/Tourism/gis/Hyogo-snow-dp.tiff';
+
+      var snowDepthLayer;
+            fetch(geotiffUrl)
+                .then(response => response.arrayBuffer())
+                .then(arrayBuffer => {
+                    var tiff = GeoTIFF.parse(arrayBuffer);
+                    var image = tiff.getImage();
+                    var bounds = [[35.059739587, 133.98779069], [35.688647922, 135.01241663]]; // 適切なバウンディングボックスを指定
+                    var options = {
+                        band: 0,
+                        noDataValue: 999999, // NoData値の指定
+                        colorMap: [[0, 'blue'], [100, 'green'], [200, 'yellow']] // 色マッピングの例
+                    };
+                    snowDepthLayer = L.geotiff(image, options);
+                    snowDepthLayer.addTo(map); // GeoTIFFレイヤーをマップに追加
+                })
+                .catch(error => {
+                    console.error('Error loading GeoTIFF:', error);
+                });
 
       // オーバーレイをまとめる
       var overlays = {
