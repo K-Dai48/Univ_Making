@@ -39,17 +39,17 @@ function setting() {
       });
 
       // 最深積雪タイルレイヤーを追加
-      var snowDepth = L.tileLayer('https://github.com/K-Dai48/Univ_Making/tree/main/Tourism/gis/{z}/{x}/{y}.png', {
-        opacity: 0.4,
-        maxZoom: 18, // 最大ズームレベル
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      });
+      //var snowDepth = L.tileLayer('https://github.com/K-Dai48/Univ_Making/tree/main/Tourism/gis/{z}/{x}/{y}.png', {
+        //opacity: 0.4,
+        //maxZoom: 18, // 最大ズームレベル
+        //attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      //});
 
 
       // オーバーレイをまとめる
       var overlays = {
         "標高タイル": elevationLayer,
-        "最深積雪量（2022年）": snowDepth
+        //"最深積雪量（2022年）": snowDepth
       };
 
       //ベースマップの表示をコントロールする関数
