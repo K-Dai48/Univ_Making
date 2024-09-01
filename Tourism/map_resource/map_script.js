@@ -14,7 +14,7 @@ function setting() {
 
       //国土地理院地図のタイルレイヤを追加
       var gsi = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://maps.gsi.go.jp">国土地理院地図</a> contributors'
+        attribution: '&copy; <a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院地図</a> contributors'
       });
 
       //マップオブジェクトを作成
@@ -29,8 +29,29 @@ function setting() {
         "地理院地図": gsi
       };
 
+      // 標高タイルレイヤーを追加
+      var elevationLayer = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/relief/{z}/{x}/{y}.png', {
+        opacity: 0.6, // 半透明
+        attribution: '標高タイル: © <a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>'
+      });
+
+      // 最深積雪メッシュデータレイヤーを追加
+      var snowDepthLayer = L.tileLayer.wms('https://www.gsi.go.jp/cgi-bin/wms.cgi?', {
+        layers: 'NSD_snowdepth',
+        format: 'image/png',
+        transparent: true,
+        opacity: 0.6, // 半透明
+        attribution: '最深積雪データ: © <a href="https://www.gsi.go.jp/bousaichiri/bousaichiri41042.html">国土地理院</a>'
+      });
+
+      // オーバーレイをまとめる
+      var overlays = {
+        "標高タイル": elevationLayer,
+        "最深積雪データ": snowDepthLayer
+      };
+
       //ベースマップの表示をコントロールする関数
-      L.control.layers(basemaps).addTo(map);
+      L.control.layers(basemaps, overlays).addTo(map);
 
       return map; // `map` オブジェクトを返す
 
