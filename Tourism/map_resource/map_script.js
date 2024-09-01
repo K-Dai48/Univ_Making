@@ -37,7 +37,7 @@ function setting() {
         attribution: '標高タイル: © <a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>'
       });
 
-      var geotiffUrl = 'Tourism/gis/Hyogo-snow-dp.tiff';
+      var geotiffUrl = 'Tourism/gis/Hyogo-snow-dp.tif';
 
       var snowDepthLayer;
         fetch(geotiffUrl)
