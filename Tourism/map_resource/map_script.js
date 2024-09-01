@@ -33,13 +33,23 @@ function setting() {
 
       // 標高タイルレイヤーを追加
       var elevationLayer = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/relief/{z}/{x}/{y}.png', {
-        opacity: 0.7, // 半透明
+        opacity: 0.4, // 半透明
+        maxZoom: 18,
         attribution: '標高タイル: © <a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>'
       });
+
+      // 最深積雪タイルレイヤーを追加
+      var snowDepth = L.tileLayer('https://github.com/K-Dai48/Univ_Making/tree/main/Tourism/gis/{z}/{x}/{y}.png', {
+        opacity: 0.4,
+        maxZoom: 18, // 最大ズームレベル
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      });
+
 
       // オーバーレイをまとめる
       var overlays = {
         "標高タイル": elevationLayer,
+        "最深積雪量（2022年）": snowDepth
       };
 
       //ベースマップの表示をコントロールする関数
